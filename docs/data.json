@@ -2,43 +2,27 @@
  "ansokningar": [
   {
    "ar": 2026,
-   "beslut_datum": null,
    "bidrag_id": "ange-riktat-bidrag",
    "deadline": "2026-08-25",
-   "kortnamn": "Ånge riktat",
-   "noteringar": "Väntar på styrelsens val av vilken utrustning eller förbättring som ska sökas. Värdet ligger lika mycket i handläggarkontakten som i beloppet.",
-   "sokt_belopp_kr": null,
-   "status": "planerad"
+   "kortnamn": "Ånge riktat"
   },
   {
    "ar": 2026,
-   "beslut_datum": null,
    "bidrag_id": "bygdemedel-vasternorrland",
    "deadline": "2026-09-15",
-   "kortnamn": "Bygdemedel",
-   "noteringar": "BLOCKERAD tills Länsstyrelsen svarat på var gränsen mot affärsverksamhet går — men rättsläget ser ljusare ut efter genomlysningen 2026-08-08: spärren är webbmall utan författningsstöd och grannlänspraxis beviljar föreningsägda bryggor och badplatser. Ring Henrik Skyttberg 0611-34 90 00, fråga även om ideellt arbete räknas, och begär ut handboken för bygdeavgiftsmedel.",
-   "sokt_belopp_kr": null,
-   "status": "planerad"
+   "kortnamn": "Bygdemedel"
   },
   {
    "ar": 2026,
-   "beslut_datum": null,
    "bidrag_id": "leader-mittland-plus",
    "deadline": "2026-09-15",
-   "kortnamn": "Leader",
-   "noteringar": "Siktar på oktobermötet: ansökan senast 15 september, LAG-beslut 13 oktober, formellt JV-beslut 3-5 månader senare. Datumkonflikten är löst (6 augusti gällde och har passerat). Kräver medlemskap (100 kr) OCH fullmakt till Jordbruksverket (1-2 veckor) före ansökan. Ring kansliet om 30-procentskravets status och om wifi bedöms som allmännytta (40-100 %, inget tak) eller kommersiell nytta (40-70 %, tak 300 000 kr).",
-   "sokt_belopp_kr": null,
-   "status": "planerad"
+   "kortnamn": "Leader"
   },
   {
    "ar": 2026,
-   "beslut_datum": null,
    "bidrag_id": "nokas",
    "deadline": "2026-08-31",
-   "kortnamn": "Nokås",
-   "noteringar": "KONTAKT INITIERAD med Skogsstyrelsen 2026-08-05 (Daniel). Genomlysningen 2026-08-08 löste den ena frågan skriftligt: ideellt arbete räknas (340 kr/tim som godkänd kostnad på 70 %-posten; på ledens fasta ersättning redovisas inga kostnader). Statsstödsfrågan är också löst — de minimis enligt (EU) 2023/2831. Kvar för telefon: om 31 augusti är formell frist eller prioriteringsgräns, och om 5 km-gränsen betyder \"högst\" eller \"under\". Utkastet kan inte skrivas förrän styrelsen valt vilka leder och friluftsanordningar som ska sökas.",
-   "sokt_belopp_kr": null,
-   "status": "planerad"
+   "kortnamn": "Nokås"
   }
  ],
  "bidrag": [

@@ -60,8 +60,8 @@ h2{font-size:clamp(1.4rem,3.5vw,1.9rem); margin:2.8rem 0 .9rem; border-bottom:3p
 h3{font-size:1.12rem; margin:1.6rem 0 .5rem}
 .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
 .overline{
-  font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.72rem;
-  letter-spacing:.22em; text-transform:uppercase; color:var(--fg-muted);
+  font-size:.8rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--fg-muted); font-weight:600;
 }
 .lede{font-size:1.08rem; max-width:44rem; color:var(--fg)}
 .muted{color:var(--fg-muted)}
@@ -85,10 +85,9 @@ ul.kompakt{list-style:none; padding:0; margin:.4rem 0 1.2rem}
 ul.kompakt li{padding:.5rem 0; border-bottom:1px dashed var(--rule); font-size:.97rem}
 .kange{margin:.7rem 0 .2rem; font-size:1rem}
 .stamp{
-  display:inline-block; margin-top:1rem; padding:.35rem .7rem;
-  border:2px solid var(--accent); color:var(--accent); border-radius:3px;
-  font-family:ui-monospace,Menlo,monospace; font-size:.74rem;
-  letter-spacing:.14em; text-transform:uppercase; transform:rotate(-1.2deg);
+  display:inline-block; margin-top:1rem; padding:.35rem .8rem;
+  border:2px solid var(--accent); color:var(--accent); border-radius:4px;
+  font-size:.92rem; font-style:italic; transform:rotate(-1.2deg);
 }
 
 /* ---------- nyckeltal ---------- */
@@ -97,9 +96,9 @@ ul.kompakt li{padding:.5rem 0; border-bottom:1px dashed var(--rule); font-size:.
   background:var(--bg-card); border:1px solid var(--rule); border-radius:6px;
   padding:.9rem 1rem .8rem; position:relative;
 }
-.tile .n{font-family:ui-monospace,Menlo,monospace; font-size:2rem; line-height:1; color:var(--navy-ink)}
+.tile .n{font-size:2.2rem; line-height:1; color:var(--navy-ink); font-weight:600}
 @media (prefers-color-scheme: dark){ .tile .n{color:var(--sky)} }
-.tile .l{font-size:.8rem; color:var(--fg-muted); margin-top:.3rem; letter-spacing:.04em; text-transform:uppercase}
+.tile .l{font-size:.92rem; color:var(--fg-muted); margin-top:.3rem}
 .tile.hot{border-color:var(--accent)}
 .tile.hot .n{color:var(--accent)}
 
@@ -109,17 +108,16 @@ ul.kompakt li{padding:.5rem 0; border-bottom:1px dashed var(--rule); font-size:.
   background:var(--bg-card); border:1px solid var(--rule); border-left:4px solid var(--navy);
   border-radius:6px; padding:.95rem 1.05rem;
 }
-.card h3{margin:.1rem 0 .35rem; font-size:1.05rem}
-.card .deadline{font-family:ui-monospace,Menlo,monospace; font-size:.86rem}
+.card h3{margin:.1rem 0 .35rem; font-size:1.1rem}
+.card .deadline{font-size:.98rem}
 .card .cd{color:var(--accent); font-weight:600}
-.card p{margin:.5rem 0 0; font-size:.9rem; color:var(--fg-muted)}
+.card p{margin:.5rem 0 0; font-size:.95rem}
 
 /* ---------- chips/badges ---------- */
 .chip{
-  display:inline-block; padding:.08rem .5rem; margin:0 .25rem .25rem 0;
-  border:1.5px solid var(--chip-border); border-radius:3px;
-  font-family:ui-monospace,Menlo,monospace; font-size:.68rem;
-  letter-spacing:.09em; text-transform:uppercase; color:var(--fg-muted);
+  display:inline-block; padding:.1rem .65rem; margin:0 .25rem .25rem 0;
+  border:1.5px solid var(--chip-border); border-radius:999px;
+  font-size:.82rem; color:var(--fg-muted);
   vertical-align:middle; white-space:nowrap;
 }
 .chip.aktuell{border-color:var(--forest); color:var(--forest)}
@@ -153,12 +151,12 @@ ul.kompakt li{padding:.5rem 0; border-bottom:1px dashed var(--rule); font-size:.
 table{border-collapse:collapse; width:100%; font-size:.88rem; background:var(--bg-card)}
 th,td{padding:.5rem .65rem; text-align:left; border-bottom:1px solid var(--rule); vertical-align:top}
 th{
-  font-family:ui-monospace,Menlo,monospace; font-size:.68rem; letter-spacing:.12em;
+  font-size:.78rem; letter-spacing:.1em; font-weight:600;
   text-transform:uppercase; color:var(--fg-muted); border-bottom:2px solid var(--navy);
   white-space:nowrap;
 }
 tbody tr:last-child td{border-bottom:none}
-td.num{font-family:ui-monospace,Menlo,monospace; white-space:nowrap}
+td.num{white-space:nowrap}
 
 /* ---------- katalog ---------- */
 details.post{
@@ -234,14 +232,8 @@ footer.site{
     <h2 id="h-laget">Läget i korthet</h2>
     <div class="tiles" id="tiles"></div>
 
-    <h3>Förberedda ansökningar</h3>
+    <h3>Ansökningar som väntar på styrelsens beslut</h3>
     <div class="cards" id="ansokningar"></div>
-
-    <details class="fragor" id="fragor-box" open>
-      <summary>Obesvarade frågor — det som bara ett telefonsamtal kan avgöra
-        (<span id="fragor-antal">0</span>)</summary>
-      <ul id="fragor"></ul>
-    </details>
   </section>
 
   <!-- ============ NIVÅ 2: KALENDERN & TOPPLISTAN ============ -->
@@ -267,7 +259,7 @@ footer.site{
     <h3 id="h-topp">Topplistan — levande spår efter relevans</h3>
     <div class="tbl-scroll">
       <table id="topplista">
-        <thead><tr><th>Bidrag</th><th>Finansiär</th><th>Relevans</th><th>Sida</th><th>Stödandel</th><th>Utbetalning</th><th>Nästa datum</th></tr></thead>
+        <thead><tr><th>Bidrag</th><th>Finansiär</th><th>Relevans</th><th>Stödandel</th><th>Utbetalning</th><th>Nästa datum</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
@@ -284,6 +276,12 @@ footer.site{
     bidragsdatabas.</p>
 
     <div id="katalog-sektioner"></div>
+
+    <details class="fragor" id="fragor-box">
+      <summary>För den nyfikne: frågor vi ännu inte fått svar på
+        (<span id="fragor-antal">0</span>)</summary>
+      <ul id="fragor"></ul>
+    </details>
   </section>
 
 </main>
@@ -320,12 +318,22 @@ const ORD = {
   relevans:{hog:"Hög", medel:"Medel", lag:"Låg"},
   janej:{ja:"Ja", nej:"Nej", okant:"Ej utrett"},
   typ:{stanger:"stänger", oppnar:"öppnar"},
-  ansokningsstatus:{planerad:"Planerad", utkast:"Utkast", inlamnad:"Inlämnad",
-    beviljad:"Beviljad", avslag:"Avslag", tillbakadragen:"Tillbakadragen"},
 };
 /* Kortnamnet kommer ur data.json (generatorn äger det) — sidan håller
    ingen egen lista över vilka bidrag som finns. */
 const kortnamn = (r) => r.kortnamn || r.namn || r.bidrag_id || r.id || "";
+
+/* Datum skrivs ut på svenska — "25 augusti", med årtal bara när det inte är
+   innevarande år. ISO-format är för maskiner, inte för styrelsen. */
+const MANADER = ["januari","februari","mars","april","maj","juni","juli",
+  "augusti","september","oktober","november","december"];
+function datumSv(iso){
+  const delar = String(iso || "").split("-").map(Number);
+  if (delar.length !== 3 || delar.some(n => !Number.isFinite(n))) return String(iso || "");
+  const [ar, man, dag] = delar;
+  const iAr = new Date().getFullYear();
+  return dag + " " + (MANADER[man-1] || man) + (ar !== iAr ? " " + ar : "");
+}
 
 /* Nedräkning körs i besökarens webbläsare — filen i repot är deterministisk. */
 function dagarKvar(datum){
@@ -349,11 +357,11 @@ function renderaLage(data){
     .sort((a,b) => a.datum.localeCompare(b.datum));
   const nasta = kommande[0];
   const tiles = [
-    {n:s.aktuella, l:"aktuella spår"},
-    {n:s.bevakas, l:"bevakas"},
-    {n:s.avfardade, l:"avfärdade"},
-    nasta ? {n:Math.max(0, dagarKvar(nasta.datum)), l:"dagar till nästa deadline — " + kortnamn(nasta), hot:true}
-          : {n:"–", l:"ingen kommande deadline"},
+    {n:s.aktuella, l:"bidrag går att söka"},
+    {n:s.bevakas, l:"bevakas därutöver"},
+    nasta ? {n:Math.max(0, dagarKvar(nasta.datum)),
+             l:"dagar till nästa stoppdatum: " + kortnamn(nasta) + ", " + datumSv(nasta.datum), hot:true}
+          : {n:"–", l:"inga kommande stoppdatum"},
   ];
   $("#tiles").innerHTML = tiles.map(t =>
     `<div class="tile${t.hot ? " hot" : ""}"><div class="n mono">${esc(t.n)}</div><div class="l">${esc(t.l)}</div></div>`
@@ -365,13 +373,12 @@ function renderaLage(data){
     .map(a => {
     const post = per[a.bidrag_id] || {};
     const dl = a.deadline
-      ? `<div class="deadline mono">${esc(a.deadline)} · <span class="cd">${esc(dagarText(a.deadline))}</span></div>`
-      : `<div class="deadline mono muted">löpande</div>`;
+      ? `<div class="deadline">Sista dag: <strong>${esc(datumSv(a.deadline))}</strong> · <span class="cd">${esc(dagarText(a.deadline))}</span></div>`
+      : `<div class="deadline muted">löpande ansökan</div>`;
     return `<div class="card">
       <h3>${esc(post.namn || a.bidrag_id)}</h3>
-      <span class="chip">${esc(ORD.ansokningsstatus[a.status] || a.status)}</span>
       ${dl}
-      <p>${esc(a.noteringar || "")}</p>
+      <p><a href="#post-${esc(a.bidrag_id)}">Vad bidraget kan ge — läs längre ner ↓</a></p>
     </div>`;
   }).join("");
 
@@ -414,14 +421,13 @@ function renderaKalender(data){
     "aria-label":"Tidslinje över ansökningsfönster de kommande sex månaderna"});
 
   /* månadsstreck — genereras ur fönstret */
-  const MNAMN = ["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","dec"];
   for (let m = new Date(start); m < slut; m = new Date(m.getFullYear(), m.getMonth()+1, 1)){
     const xm = x(iso(m));
     svg.appendChild(el("line", {x1:xm, y1:34, x2:xm, y2:H-38,
       stroke:"var(--rule)", "stroke-width":1, "stroke-dasharray":"3 5"}));
-    svg.appendChild(el("text", {x:xm+4, y:H-22, "font-size":12,
-      fill:"var(--fg-muted)", "font-family":"ui-monospace,Menlo,monospace"},
-      MNAMN[m.getMonth()] + (m.getMonth() === 0 ? " " + m.getFullYear() : "")));
+    svg.appendChild(el("text", {x:xm+4, y:H-22, "font-size":12.5,
+      fill:"var(--fg-muted)"},
+      MANADER[m.getMonth()].slice(0,3) + (m.getMonth() === 0 ? " " + m.getFullYear() : "")));
   }
   /* axel */
   svg.appendChild(el("line", {x1:L, y1:AXEL, x2:W-R, y2:AXEL, stroke:"var(--mark)", "stroke-width":2}));
@@ -467,23 +473,23 @@ function renderaKalender(data){
         kortnamn(r) + (r.typ === "oppnar" ? " ⊙" : "")));
     });
     /* datumetiketten följer gruppens nivå så att grannar inte skriver över varandra */
-    svg.appendChild(el("text", {x:gx, y: upp ? bas + 18 : bas - 10, "font-size":10,
-      fill:"var(--fg-muted)", "text-anchor":"middle",
-      "font-family":"ui-monospace,Menlo,monospace"}, g.datum.slice(5).replace("-","/")));
+    const dDag = parseInt(g.datum.slice(8), 10), dMan = parseInt(g.datum.slice(5, 7), 10);
+    svg.appendChild(el("text", {x:gx, y: upp ? bas + 18 : bas - 10, "font-size":10.5,
+      fill:"var(--fg-muted)", "text-anchor":"middle"}, dDag + "/" + dMan));
   });
 
   $("#tidslinje").appendChild(svg);
 
   if (utanfor.length){
     $("#senare").innerHTML = `<p class="small muted" style="margin:.5rem 0 0">
-      Utanför fönstret: ` + utanfor.map(r =>
-        `<span class="mono">${esc(r.datum)}</span> ${esc(kortnamn(r))} ${esc(ORD.typ[r.typ])}`
+      Utanför bilden: ` + utanfor.map(r =>
+        `${esc(kortnamn(r))} ${esc(ORD.typ[r.typ])} ${esc(datumSv(r.datum))}`
       ).join(" · ") + `</p>`;
   }
 
   /* kalendern som lista (tabellvy, alla rader) */
   $("#kalenderlista tbody").innerHTML = rader.map(r =>
-    `<tr><td class="num">${esc(r.datum)}</td><td>${esc(ORD.typ[r.typ])}</td>
+    `<tr><td class="num">${esc(datumSv(r.datum))}</td><td>${esc(ORD.typ[r.typ])}</td>
      <td>${esc(r.namn)}</td><td class="small muted">${esc(r.notering || "")}</td></tr>`
   ).join("");
 
@@ -502,12 +508,11 @@ function renderaKalender(data){
     const nastaF = (p.ansokningsfonster || [])
       .flatMap(f => [f.oppnar, f.stanger]).filter(Boolean)
       .filter(d => dagarKvar(d) >= 0).sort()[0];
-    const nastaTxt = p.lopande_ansokan ? "löpande" : (nastaF || "—");
+    const nastaTxt = p.lopande_ansokan ? "löpande" : (nastaF ? datumSv(nastaF) : "—");
     return `<tr>
       <td><a href="#post-${esc(p.id)}">${esc(p.namn)}</a></td>
       <td class="small">${esc(p.finansiar)}</td>
       <td><span class="chip ${esc(p.relevans)}">${esc(ORD.relevans[p.relevans] || "ej utrett")}</span></td>
-      <td class="small">${esc(ORD.sida[p.sida] || "ej utrett")}</td>
       <td class="num">${p.stodandel_procent != null ? esc(p.stodandel_procent) + " %" : "—"}</td>
       <td class="small">${esc(ORD.utbetalning[p.utbetalning] || "Ej utrett")}</td>
       <td class="num">${esc(nastaTxt)}</td>
@@ -519,7 +524,7 @@ function renderaKalender(data){
 function kopplaTooltip(elem, r, passerad){
   const tip = $("#tooltip");
   const visa = (ev) => {
-    tip.innerHTML = `<div class="t-datum">${esc(r.datum)} · ${esc(ORD.typ[r.typ])}${passerad ? " · passerat" : ""}</div>
+    tip.innerHTML = `<div class="t-datum">${esc(datumSv(r.datum))} · ${esc(ORD.typ[r.typ])}${passerad ? " · passerat" : ""}</div>
       <strong>${esc(r.namn)}</strong><br><span style="opacity:.8">${esc(r.finansiar)}</span>` +
       (r.notering ? `<div style="margin-top:.3rem">${esc(r.notering)}</div>` : "");
     tip.style.display = "block";
@@ -555,7 +560,7 @@ function renderaPost(p, oppen){
     .flatMap(f => [f.oppnar, f.stanger]).filter(Boolean)
     .filter(d => dagarKvar(d) >= 0).sort()[0];
   const nasta = p.lopande_ansokan ? "löpande ansökan"
-    : (nastaF ? nastaF + " · " + dagarText(nastaF) : null);
+    : (nastaF ? datumSv(nastaF) + " · " + dagarText(nastaF) : null);
   // Endast http(s) blir klickbart — en javascript:-URL i databasen ska
   // renderas som text, inte som körbar länk. Försvar på djupet; datan är vår.
   const kalla = (p.kallor || []).map(k => k.url)
@@ -650,10 +655,11 @@ async function ladda(){
       document.querySelector(sektion).appendChild(p);
     }
   }
-  $("#stamp").textContent = "källäge " + (data.senaste_hamtning || "okänt") +
+  $("#stamp").textContent = "Uppgifterna kontrollerade " +
+    (data.senaste_hamtning ? datumSv(data.senaste_hamtning) : "okänt datum") +
     (allaOk ? "" : " · RENDERINGSFEL");
-  $("#f-hamtning").textContent = data.senaste_hamtning || "ej utrett";
-  $("#f-uppdaterad").textContent = data.databas_uppdaterad || "ej utrett";
+  $("#f-hamtning").textContent = data.senaste_hamtning ? datumSv(data.senaste_hamtning) : "ej utrett";
+  $("#f-uppdaterad").textContent = data.databas_uppdaterad ? datumSv(data.databas_uppdaterad) : "ej utrett";
 }
 ladda();
 </script>
