@@ -263,8 +263,9 @@ footer.site{
   <!-- ============ NIVÅ 3: HELA KATALOGEN ============ -->
   <section id="katalogen" aria-labelledby="h-kat">
     <h2 id="h-kat">Hela katalogen</h2>
-    <p class="muted small">Varje kort visar allt databasen vet: motivering, krav,
-    spärrar, belopp och källor. Konfidensmärkena betyder:
+    <p class="muted small">Varje kort visar det databasen publicerar: motivering,
+    krav, spärrar, belopp och källor — interna arbetsfält hålls utanför.
+    Konfidensmärkena betyder:
     <span class="chip k-kalla">källa</span> läst på finansiärens egen sida ·
     <span class="chip k-soktraff">sökträff</span> sökmotor eller tredjepartskälla ·
     <span class="chip k-gemini">gemini</span> AI-grounding där sajten blockerar hämtning ·
@@ -350,7 +351,9 @@ function renderaLage(data){
   ).join("");
 
   const per = Object.fromEntries(data.bidrag.map(p => [p.id, p]));
-  $("#ansokningar").innerHTML = data.ansokningar.map(a => {
+  $("#ansokningar").innerHTML = data.ansokningar.slice()
+    .sort((a,b) => (a.deadline || "9999").localeCompare(b.deadline || "9999"))
+    .map(a => {
     const post = per[a.bidrag_id] || {};
     const dl = a.deadline
       ? `<div class="deadline mono">${esc(a.deadline)} · <span class="cd">${esc(dagarText(a.deadline))}</span></div>`
@@ -475,11 +478,21 @@ function renderaKalender(data){
      <td>${esc(r.namn)}</td><td class="small muted">${esc(r.notering || "")}</td></tr>`
   ).join("");
 
-  /* topplistan */
-  const levande = data.bidrag.filter(p => p.status !== "avfardad");
+  /* topplistan — rubriken lovar relevansordning, så här sorteras på
+     relevans FÖRST (generatorns ordning är status-först för katalogen) */
+  const RELRANK = {hog:0, medel:1, lag:2};
+  const STATRANK = {aktuell:0, bevakas:1};
+  const levande = data.bidrag.filter(p => p.status !== "avfardad")
+    .slice().sort((a,b) =>
+      ((RELRANK[a.relevans] ?? 9) - (RELRANK[b.relevans] ?? 9)) ||
+      ((STATRANK[a.status] ?? 9) - (STATRANK[b.status] ?? 9)) ||
+      (a.namn || "").localeCompare(b.namn || "", "sv"));
   $("#topplista tbody").innerHTML = levande.map(p => {
+    /* nästa datum = första KOMMANDE datumet, öppning ELLER stängning —
+       en stängning långt fram får inte skymma en öppning nästa vecka */
     const nastaF = (p.ansokningsfonster || [])
-      .map(f => f.stanger || f.oppnar).filter(Boolean).filter(d => dagarKvar(d) >= 0).sort()[0];
+      .flatMap(f => [f.oppnar, f.stanger]).filter(Boolean)
+      .filter(d => dagarKvar(d) >= 0).sort()[0];
     const nastaTxt = p.lopande_ansokan ? "löpande" : (nastaF || "—");
     return `<tr>
       <td><a href="#post-${esc(p.id)}">${esc(p.namn)}</a></td>
