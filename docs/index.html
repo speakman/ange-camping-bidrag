@@ -83,6 +83,7 @@ nav.toc{
 nav.toc a{white-space:nowrap}
 ul.kompakt{list-style:none; padding:0; margin:.4rem 0 1.2rem}
 ul.kompakt li{padding:.5rem 0; border-bottom:1px dashed var(--rule); font-size:.97rem}
+.kange{margin:.7rem 0 .2rem; font-size:1rem}
 .stamp{
   display:inline-block; margin-top:1rem; padding:.35rem .7rem;
   border:2px solid var(--accent); color:var(--accent); border-radius:3px;
@@ -275,16 +276,12 @@ footer.site{
   <!-- ============ NIVÅ 3: HELA KATALOGEN ============ -->
   <section id="katalogen" aria-labelledby="h-kat">
     <h2 id="h-kat">Sannolika spår — det styrelsen bör titta på</h2>
-    <p class="muted small">Alla kort är UTFÄLLDA så att inget göms bakom en
-    tryckning — rubrikerna med bladtecknet ❧ går att fälla ihop om man vill.
-    Varje kort visar vad föreningen kan söka för, rimliga belopp, tidigare
-    tilldelningar, krav och källor. Konfidensmärkena betyder:
-    <span class="chip k-kalla">källa</span> läst på finansiärens egen sida ·
-    <span class="chip k-soktraff">sökträff</span> sökmotor eller tredjepartskälla ·
-    <span class="chip k-gemini">gemini</span> AI-grounding där sajten blockerar hämtning ·
-    <span class="chip k-ej_bekraftat">ej bekräftat</span> får inte användas i en
-    ansökan utan kontroll först. Det databasen inte vet skrivs
-    <em>ej utrett</em> — sidan gissar aldrig.</p>
+    <p class="muted small">Alla kort är utfällda så att inget göms bakom en
+    tryckning (rubrikraden går att fälla ihop om man vill). Varje kort svarar
+    på fyra frågor: vad kan bidraget ge oss, vad har det gett andra, vad kan
+    vi söka för utifrån föreningens behov, och vilka begränsningar gäller.
+    Fullständiga krav, källor och de obesvarade frågorna finns i föreningens
+    bidragsdatabas.</p>
 
     <div id="katalog-sektioner"></div>
   </section>
@@ -300,8 +297,8 @@ footer.site{
     <span class="mono" id="f-uppdaterad">–</span>.</p>
     <p>Sidan är statisk och byggs om ur databasen vid varje ändring —
     <a href="https://github.com/speakman/ange-camping-bidrag">källkod och data</a>.
-    Uppgifter märkta <span class="chip k-ej_bekraftat">ej bekräftat</span> får
-    inte användas i en ansökan utan kontroll.</p>
+    Det som står under obesvarade frågor är just obesvarat — inget sådant
+    används i en ansökan utan kontroll hos finansiären.</p>
   </div>
 </footer>
 
@@ -322,7 +319,6 @@ const ORD = {
   statsstod:{de_minimis:"De minimis", ej_tillampligt:"Ej tillämpligt", okant:"Ej utrett"},
   relevans:{hog:"Hög", medel:"Medel", lag:"Låg"},
   janej:{ja:"Ja", nej:"Nej", okant:"Ej utrett"},
-  konfidens:{kalla:"källa", soktraff:"sökträff", gemini:"gemini", ej_bekraftat:"ej bekräftat"},
   typ:{stanger:"stänger", oppnar:"öppnar"},
   ansokningsstatus:{planerad:"Planerad", utkast:"Utkast", inlamnad:"Inlämnad",
     beviljad:"Beviljad", avslag:"Avslag", tillbakadragen:"Tillbakadragen"},
@@ -545,80 +541,39 @@ function kopplaTooltip(elem, r, passerad){
 }
 
 /* ---------- nivå 3: katalogen ---------- */
-/* OBS motsatta escapningskontrakt, avsiktligt namngivna därefter:
-   radHtml tar FÄRDIG HTML — anroparen ansvarar för esc().
-   lista escapar SJÄLV varje element. */
-function radHtml(dt, ddHtml){ return ddHtml ? `<dt>${dt}</dt><dd>${ddHtml}</dd>` : ""; }
+/* lista escapar SJÄLV varje element. */
 function lista(rubrik, arr){
   if (!Array.isArray(arr) || !arr.length) return "";
   return `<h4 class="overline" style="margin:.9rem 0 .2rem">${esc(rubrik)}</h4>
     <ul>${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
 }
-function beloppText(p){
-  const b = p.belopp || {};
-  let spann = "";
-  if (b.min_kr != null && b.max_kr != null) spann = fmtKr(b.min_kr) + " – " + fmtKr(b.max_kr);
-  else if (b.max_kr != null) spann = "upp till " + fmtKr(b.max_kr);
-  else if (b.min_kr != null) spann = "lägst " + fmtKr(b.min_kr);
-  return esc(spann) || (b.notering ? "" : "ej utrett");
-}
-function fonsterText(p){
-  const f = (p.ansokningsfonster || []).map(w => {
-    const d = [];
-    if (w.oppnar) d.push("öppnar " + w.oppnar);
-    if (w.stanger) d.push("stänger " + w.stanger + " (" + dagarText(w.stanger) + ")");
-    return d.join(" · ");
-  }).filter(Boolean);
-  if (p.lopande_ansokan) f.unshift("löpande ansökan");
-  return f;
-}
 function renderaPost(p, oppen){
-  const st = p.status;
-  const chips = `<span class="chip ${esc(st)}">${esc(ORD.status[st])}</span>` +
-    (st !== "avfardad" && p.relevans ? `<span class="chip ${esc(p.relevans)}">relevans ${esc(ORD.relevans[p.relevans])}</span>` : "") +
-    `<span class="chip">${esc(ORD.sida[p.sida] || "ej utrett")}</span>`;
-  const med = p.medfinansiering || {};
-  const kallor = (p.kallor || []).map(k => {
-    // Endast http(s) blir klickbart — en javascript:-URL i databasen ska
-    // renderas som text, inte som körbar länk. Försvar på djupet; datan är vår.
-    const klickbar = /^https?:\/\//i.test(k.url || "");
-    const lank = klickbar
-      ? `<a href="${esc(k.url)}" target="_blank" rel="noopener noreferrer">${esc(k.url)}</a>`
-      : `<span class="mono">${esc(k.url || "")}</span>`;
-    return `<li class="kallista"><span class="chip k-${esc(k.konfidens)}">${esc(ORD.konfidens[k.konfidens] || k.konfidens)}</span>
-     ${lank}
-     <span class="muted mono small">hämtad ${esc(k.hamtad || "?")}</span></li>`;
-  }).join("");
-  const motiv = st === "avfardad" ? p.avfardad_motivering : p.relevans_motivering;
-  const fonster = fonsterText(p);
-
+  /* Styrelsevänt kort: vad bidraget kan ge oss, vad det gett andra, idéer
+     utifrån föreningens behov, och begränsningarna. Analysen, källapparaten
+     och telefonfrågorna bor i föreningens databas och rapport — inte här. */
+  const nastaF = (p.ansokningsfonster || [])
+    .flatMap(f => [f.oppnar, f.stanger]).filter(Boolean)
+    .filter(d => dagarKvar(d) >= 0).sort()[0];
+  const nasta = p.lopande_ansokan ? "löpande ansökan"
+    : (nastaF ? nastaF + " · " + dagarText(nastaF) : null);
+  // Endast http(s) blir klickbart — en javascript:-URL i databasen ska
+  // renderas som text, inte som körbar länk. Försvar på djupet; datan är vår.
+  const kalla = (p.kallor || []).map(k => k.url)
+    .find(u => /^https?:\/\//i.test(u || ""));
   return `<details class="post" id="post-${esc(p.id)}"${oppen ? " open" : ""}>
     <summary>
       <span class="namn">${esc(p.namn)}</span>
       <span class="fin">${esc(p.finansiar)}</span>
       <span style="flex-basis:100%;height:0"></span>
-      ${chips}
+      ${nasta ? `<span class="chip">${esc(nasta)}</span>` : ""}
+      ${p.relevans ? `<span class="chip ${esc(p.relevans)}">${esc(ORD.relevans[p.relevans] || p.relevans)}</span>` : ""}
     </summary>
     <div class="body">
-      ${motiv ? `<blockquote class="motiv">${esc(motiv)}</blockquote>` : ""}
-      <dl>
-        ${radHtml("Vem får söka", esc(p.vem_far_soka || "ej utrett"))}
-        ${radHtml("Belopp", [beloppText(p), esc((p.belopp || {}).notering || "")].filter(Boolean).join("<br>"))}
-        ${radHtml("Stödandel", p.stodandel_procent != null ? esc(p.stodandel_procent) + " %" : "ej utrett")}
-        ${radHtml("Utbetalning", esc(ORD.utbetalning[p.utbetalning] || "Ej utrett"))}
-        ${radHtml("Statsstöd", esc(ORD.statsstod[p.statsstod] || "Ej utrett"))}
-        ${radHtml("Ideell tid räknas", esc(ORD.janej[med.ideell_tid_racknas] || "Ej utrett"))}
-        ${radHtml("Kontakt", esc(p.kontakt || ""))}
-        ${st === "avfardad" ? radHtml("Avfärdad", esc(p.avfardad_datum || "")) : radHtml("Senast kontrollerad", esc(p.senast_kontrollerad || ""))}
-      </dl>
-      ${lista("Vad kan föreningen söka för?", p.projektuppslag)}
-      ${lista("Tidigare tilldelningar i närheten — praxis", p.praxis)}
-      ${lista("Ansökningsfönster", fonster)}
-      ${lista("Spärrar och varningar", p.blockerare)}
-      ${lista("Krav och checklista", p.krav_checklista)}
-      ${lista("Telefonfrågor — obesvarade", p.telefonfragor)}
-      ${p.atgard ? `<h4 class="overline" style="margin:.9rem 0 .2rem">Nästa steg</h4><p style="font-size:.9rem;margin:.2rem 0">${esc(p.atgard)}</p>` : ""}
-      ${kallor ? `<h4 class="overline" style="margin:.9rem 0 .2rem">Källor</h4><ul>${kallor}</ul>` : ""}
+      ${p.kan_ge ? `<p class="kange"><strong>Kan ge oss:</strong> ${esc(p.kan_ge)}</p>` : ""}
+      ${lista("Har gett andra — exempel", p.praxis)}
+      ${lista("Idéer — vad vi kan söka för", p.projektuppslag)}
+      ${lista("Begränsningar", p.begransningar)}
+      <p class="small muted" style="margin-top:.8rem">${kalla ? `<a href="${esc(kalla)}" target="_blank" rel="noopener noreferrer">Läs mer hos finansiären</a> · ` : ""}uppgifterna kontrollerade ${esc(p.senast_kontrollerad || "")}</p>
     </div>
   </details>`;
 }

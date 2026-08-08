@@ -51,6 +51,12 @@
     }
    ],
    "atgard": "Ring Henrik Skyttberg (0611-34 90 00) och ställ gränsfrågan rakt ut — rättsläget talar FÖR föreningen (förordningen saknar spärren, praxis beviljar föreningsägda bryggor och badplatser). Begär samtidigt ut handboken och beslutslistorna. Fortfarande den bäst matchade posten i kartan om svaret är ja.",
+   "begransningar": [
+    "Bara det som är gratis och öppet för alla — aldrig campingplatser eller servicehus.",
+    "Ansökan senast 15 september. Beslutet kan inte överklagas.",
+    "Eget arbete räknas inte som kostnad; om ideellt arbete räknas är obesvarat.",
+    "Pengarna betalas ut mot kvitton i efterhand."
+   ],
    "belopp": {
     "max_kr": null,
     "min_kr": null,
@@ -89,6 +95,7 @@
      "url": "https://www.ltz.se/artikel/sa-har-fordelas-arets-bygdemedel-i-stromsunds-kommun"
     }
    ],
+   "kan_ge": "Bidrag till allmännyttiga investeringar i bygden. Grannlänens praxis ligger på 20 000–125 000 kr per projekt; Västernorrland publicerar varken stödandel eller tak, så nivån måste stämmas av med handläggaren.",
    "kontakt": "Henrik Skyttberg, handläggare, 0611-34 90 00 · Mikael Öström, rekvisitioner, 072-226 47 88 · Länsstyrelsen Västernorrland",
    "kortnamn": "Bygdemedel",
    "krav_checklista": [
@@ -144,6 +151,9 @@
     }
    ],
    "atgard": "Planera en ansökan till juniomgången 2027 — leder, badplats eller lekpark passar syftesskrivningen rakt av. Kontrollera i maj 2027 om villkoren ändrats.",
+   "begransningar": [
+    "Ansökan tas bara emot 1–30 juni — nästa fönster är juni 2027."
+   ],
    "belopp": {
     "max_kr": null,
     "min_kr": null,
@@ -167,6 +177,7 @@
      "url": "http://bjornbergetvindkraft.se/media/2644289/bjb-instruktion-till-ansoekan_2024-03-14.pdf"
     }
    ],
+   "kan_ge": "Vindkraftens bygdemedel till föreningar i just Ånge kommun — beloppet sätts fritt i ansökan och potten fördelas årligen.",
    "kontakt": "ansokan@bjornbergetbygdemedel.se",
    "kortnamn": "Björnberget",
    "krav_checklista": [
@@ -197,6 +208,11 @@
   {
    "ansokningsfonster": [],
    "atgard": "Avgör om föreningen har eller kan bygga en trovärdig verksamhet för äldre 65+ eller barn och unga. Ring telefontiden och bolla idén innan någon ansökan skrivs — Arvsfonden rekommenderar det själv.",
+   "begransningar": [
+    "Kräver en NY verksamhet för äldre 65+, barn/unga eller personer med funktionsnedsättning — upprustning av befintligt räcker inte.",
+    "Tio års driftåtagande, och allt som byggs tillgänglighetsanpassas.",
+    "Flyttbara anläggningar (t.ex. flytbryggor), lös utrustning, projektering och bygglov ersätts inte."
+   ],
    "belopp": {
     "max_kr": 10000000,
     "min_kr": null,
@@ -230,6 +246,7 @@
      "url": "https://www.arvsfonden.se/projekt/nar-ni-driver-projekt/ekonomi-och-redovisa-projekt"
     }
    ],
+   "kan_ge": "Störst i hela kartan: 80 % av kostnaden upp till 10 miljoner kr inklusive moms (8 miljoner exklusive) — och pengarna betalas ut i FÖRSKOTT mot rekvisition.",
    "kontakt": "Allmänna arvsfonden · lokalstöd 08-700 09 40 (tis/tors 9.00–11.00)",
    "kortnamn": "Arvsfonden lokalstöd",
    "krav_checklista": [
@@ -277,6 +294,12 @@
     }
    ],
    "atgard": "Styrelsen måste välja vilka leder och anordningar som ska sökas. Därefter skrivs ansökan och lämnas in före 31 augusti. Ring 010-172 10 00 om 5 km-gränsen och 31 augusti-fristens natur.",
+   "begransningar": [
+    "Ansök senast 31 augusti 2026 — därefter avprioriteras just leder och friluftsanordningar.",
+    "Inget arbete får påbörjas innan ansökan är inlämnad.",
+    "Pengarna kommer i efterskott, och handläggningen kan ta upp till tolv månader.",
+    "Tio års bindningstid: det som byggs ska bestå."
+   ],
    "belopp": {
     "max_kr": null,
     "min_kr": 5000,
@@ -325,6 +348,7 @@
      "url": "https://www.skogsstyrelsen.se/aga-skog/stod-och-bidrag/nokas/om-stod-av-mindre-betydelse/"
     }
    ],
+   "kan_ge": "70 % av godkänd kostnad för friluftsanordningar — där ideellt arbete räknas som kostnad (340 kr/tim) — och fast 10 kr/meter för led: 5 km ger 50 000 kr. Lägsta stöd 5 000 kr; inget uttalat tak.",
    "kontakt": "Skogsstyrelsen 010-172 10 00",
    "kortnamn": "Nokås",
    "krav_checklista": [
@@ -377,6 +401,11 @@
     }
    ],
    "atgard": "Sikta på OKTOBERMÖTET: ansökan senast 15 september, beslut 13 oktober, formellt JV-beslut 3–5 månader senare. Ring 070-316 23 66 om 30-procentskravet och allmännyttebedömningen; skicka fullmakten och ordna medlemskapet nu.",
+   "begransningar": [
+    "Medlemskap (100 kr/år) och fullmakt till Jordbruksverket (1–2 veckor) måste vara klara före ansökan.",
+    "Nästa chans: ansökan senast 15 september, beslut 13 oktober — därefter 3–5 månaders handläggning.",
+    "Stöd som gynnar betalande gäster räknas mot EU:s de minimis-tak."
+   ],
    "belopp": {
     "max_kr": null,
     "min_kr": null,
@@ -419,6 +448,7 @@
      "url": "https://jordbruksverket.se/stod/regler-om-statsstod-och-stod-av-mindre-betydelse"
     }
    ],
+   "kan_ge": "Projektstöd med 40–100 % av kostnaderna utan tak om nyttan är allmän, eller 40–70 % med tak 300 000 kr om det främst gynnar den kommersiella driften. Mikrostöd upp till 30 000 kr, förstudier upp till 100 000 kr. Förskott möjligt: upp till halva stödet, max 250 000 kr.",
    "kontakt": "info@mittlandplus.se · 070-316 23 66 (Erika Larsson Karinaho) · Idrottens hus, Gärdehov, Sundsvall",
    "kortnamn": "Leader",
    "krav_checklista": [
@@ -465,6 +495,9 @@
   {
    "ansokningsfonster": [],
    "atgard": "Sikta på oktoberbeslutet — skicka in via formuläret när styrelsen valt projekt.",
+   "begransningar": [
+    "Beslut fattas bara två gånger per år — april och oktober."
+   ],
    "belopp": {
     "max_kr": 40000,
     "min_kr": 5000,
@@ -488,6 +521,7 @@
      "url": "https://swedbanksagarstiftelsenorrland.se/"
     }
    ],
+   "kan_ge": "Oftast 5 000–40 000 kr till föreningar i Västernorrland och Västerbotten, inom idrott, kultur och utbildning.",
    "kontakt": "073-030 70 11 · info@swedbanksagarstiftelsenorrland.se",
    "kortnamn": "Swedbank Norrland",
    "krav_checklista": [
@@ -526,6 +560,11 @@
     }
    ],
    "atgard": "Fråga Länsstyrelsens kulturmiljöenhet om bystugan kan kvalificera, i samband med att bystugans framtid utreds. Deadline 31 december för 2027 års arbeten.",
+   "begransningar": [
+    "Bystugans kulturhistoriska värde måste först bekräftas av Länsstyrelsen.",
+    "Ansökan senast 31 december för nästa års arbeten — och inget får påbörjas före beslut.",
+    "Bara merkostnaden ersätts, inte grundrenoveringen."
+   ],
    "belopp": {
     "max_kr": null,
     "min_kr": null,
@@ -545,6 +584,7 @@
      "url": "https://www.lansstyrelsen.se/vasternorrland/samhalle/kulturmiljo/bidrag-till-kulturhistoriska-miljoer.html"
     }
    ],
+   "kan_ge": "20–80 % av de antikvariskt motiverade merkostnaderna när en kulturhistoriskt värdefull byggnad rustas — formellt skydd krävs inte, lokalt värde räcker.",
    "kontakt": "Länsstyrelsen Västernorrland, kulturmiljöenheten",
    "kortnamn": "Kulturmiljövård",
    "krav_checklista": [
@@ -581,6 +621,11 @@
     }
    ],
    "atgard": "Klarlägg bystugans faktiska användning OCH Alby-frågan, sedan ansökan till 1 december.",
+   "begransningar": [
+    "Alby måste vara godkänt i kommunens samlingslokalsutredning från 2005 — obesvarat, fråga kommunen.",
+    "Lokalen ska hållas öppen för offentliga arrangemang och kunna hyras av andra föreningar.",
+    "Ansökan senast 1 december."
+   ],
    "belopp": {
     "max_kr": 75000,
     "min_kr": 20000,
@@ -604,6 +649,7 @@
      "url": "https://invanare.ange.se/download/18.5662c7411994ebf6915e5010/1758262789265/Riktlinjer%20f%C3%B6r%20f%C3%B6reningsbidrag,%20kf%20250428.pdf"
     }
    ],
+   "kan_ge": "Årligt driftbidrag för bystugan på 20 000–75 000 kr — ju fler aktiviteter i lokalen, desto högre belopp.",
    "kontakt": "Ånge kommun 0690-25 01 00",
    "kortnamn": "Ånge samlingslokal",
    "krav_checklista": [
@@ -649,6 +695,11 @@
     }
    ],
    "atgard": "Om uppvärmning är aktuellt: överväg augustiomgången (24/8–4/9). För solceller: ring och avgör elproduktionsfrågan FÖRST. Laddstolpar är lägre prioriterat på grund av anbudsformen. Att föreningar får söka är nu bekräftat via länsstyrelsekällor.",
+   "begransningar": [
+    "Ansökningsomgång endast 24 augusti–4 september i höst.",
+    "Solceller: obekräftat om elproduktion alls får stöd — ring innan planer läggs.",
+    "Laddstolpar avgörs i anbudsomgång i konkurrens med kommersiella laddbolag."
+   ],
    "belopp": {
     "max_kr": null,
     "min_kr": null,
@@ -679,6 +730,7 @@
      "url": "https://www.naturvardsverket.se/amnesomraden/klimatomstallningen/klimatklivet"
     }
    ],
+   "kan_ge": "Runt 50 % av kostnaden för klimatinvesteringar, till exempel byte till fossilfri uppvärmning i föreningens byggnader.",
    "kontakt": "Naturvårdsverket · Länsstyrelsen Västernorrland (e-tjänsten)",
    "kortnamn": "Klimatklivet",
    "krav_checklista": [
@@ -715,6 +767,9 @@
   {
    "ansokningsfonster": [],
    "atgard": "Väg mot lokalstödet när styrelsen valt projekt: bygge → lokalstöd, verksamhet → projektstöd. Samma målgruppsfråga avgör båda.",
+   "begransningar": [
+    "Samma målgrupps- och utvecklandekrav som lokalstödet — och stödet gäller verksamhet, inte byggen."
+   ],
    "belopp": {
     "max_kr": null,
     "min_kr": null,
@@ -733,6 +788,7 @@
      "url": "https://www.arvsfonden.se/ansokan/vara-stodformer"
     }
    ],
+   "kan_ge": "Fleråriga verksamhetsprojekt (1–3 år) utan beloppstak — kostnaderna ska bara vara rimliga och specificerade.",
    "kontakt": "Allmänna arvsfonden",
    "kortnamn": "Arvsfonden projektstöd",
    "krav_checklista": [
@@ -747,6 +803,9 @@
    },
    "namn": "Projektstöd",
    "niva": "stat",
+   "projektuppslag": [
+    "Ett treårigt program för tillgängligt friluftsliv eller aktiviteter för äldre 65+ — ledarledda vandringar, utebad, boule — om föreningen vill bygga en ny återkommande verksamhet."
+   ],
    "relevans": "medel",
    "relevans_motivering": "Distinkt stödform från lokalstödet: metod- och verksamhetsutveckling UTAN beloppstak, projektperiod 1–3 år, kräver bara ETT års verksamhet. Passar utvecklingsprojekt (tillgängligt friluftsliv, verksamhet för 65+) snarare än byggen. Samma tre kriterier och fyra målgrupper som lokalstödet — samma grundfråga om föreningens målgruppsverksamhet.",
    "senast_kontrollerad": "2026-08-08",
@@ -760,6 +819,10 @@
   {
    "ansokningsfonster": [],
    "atgard": "Lämna intresseanmälan för projektrådgivning och fråga efter beloppsgolv.",
+   "begransningar": [
+    "Pengarna betalas ut i efterskott mot upparbetade kostnader — kräver egen likviditet.",
+    "Kontakta handläggare innan ansökan skrivs; något beloppsgolv är inte publicerat."
+   ],
    "belopp": {
     "max_kr": null,
     "min_kr": null,
@@ -783,6 +846,7 @@
      "url": "https://www.rvn.se/sv/utveckla-vasternorrland/stod-och-finansiering/projektstod/ansok-om-projektstod-tillvaxt/"
     }
    ],
+   "kan_ge": "Upp till 50 % av projektkostnaderna (60 % om EU-strukturfonder är med). Projekt upp till 500 000 kr beslutas på tjänstemannanivå.",
    "kontakt": "Region Västernorrland",
    "kortnamn": "RVN tillväxt",
    "krav_checklista": [
@@ -798,6 +862,9 @@
    },
    "namn": "Projektstöd tillväxt",
    "niva": "region",
+   "projektuppslag": [
+    "Utvecklingsprojekt inom besöksnäringen — kräver 50 % egen finansiering och projektrådgivning som första steg."
+   ],
    "relevans": "medel",
    "relevans_motivering": "Ideell sektor får uttryckligen söka. Stödandelen upp till 50 % (60 % med EU-strukturfonder) och utbetalning i efterskott är nu bekräftade ur regionens egen ansökningssida. Beslutsnivåerna antyder projektstorlekar: upp till 500 000 kr direktörsbeslut, upp till 2 mkr nämnd, däröver styrelse. \"Löpande ansökan\" är dock inte ordagrant belagt — inget utlysningsdatum finns för standardstödet.",
    "senast_kontrollerad": "2026-08-08",
@@ -825,6 +892,11 @@
     }
    ],
    "atgard": "Styrelsen väljer vilken utrustning eller förbättring som ska sökas, sedan lämnas ansökan före 25 augusti.",
+   "begransningar": [
+    "Ansökan senast 25 augusti (nästa omgång 1 december).",
+    "Föreningar med barn/unga- eller 65+-verksamhet prioriteras först.",
+    "Pengarna betalas ut först efter redovisning med kvitton."
+   ],
    "belopp": {
     "max_kr": null,
     "min_kr": null,
@@ -848,6 +920,7 @@
      "url": "https://invanare.ange.se/download/18.5662c7411994ebf6915e5010/1758262789265/Riktlinjer%20f%C3%B6r%20f%C3%B6reningsbidrag,%20kf%20250428.pdf"
     }
    ],
+   "kan_ge": "Kommunens bidrag till utrustning och mindre förbättringar — beloppen följer årets budget och är små, men vägen till handläggaren är värd mycket inför senare ansökningar.",
    "kontakt": "Ånge kommun 0690-25 01 00 (växel) · ange@ange.se · therese.didrick@ange.se (direkt 0690-25 02 28 enligt kommunens kultursida)",
    "kortnamn": "Ånge riktat",
    "krav_checklista": [
@@ -1075,6 +1148,10 @@
   {
    "ansokningsfonster": [],
    "atgard": "Om energiinvesteringar blir aktuella: gör energikartläggningen först och ring Energimyndigheten om behörigheten.",
+   "begransningar": [
+    "Kräver genomförd energikartläggning innan ansökan.",
+    "Om föreningen räknas som sökbehörigt företag är obesvarat, liksom nästa ansökningsperiod."
+   ],
    "belopp": {
     "max_kr": 4000000,
     "min_kr": null,
@@ -1094,6 +1171,7 @@
      "url": "https://www.energimyndigheten.se/utlysningar/investeringsstod-till-sma-och-medelstora-foretag-for-effektivare-energianvandning"
     }
    ],
+   "kan_ge": "Upp till 50 % av kostnaden (max 4 miljoner kr) för energieffektivisering i små företag.",
    "kontakt": "Energimyndigheten",
    "kortnamn": "SMF-energi",
    "krav_checklista": [
@@ -1123,6 +1201,9 @@
   {
    "ansokningsfonster": [],
    "atgard": "Utred i samband med att bystugans framtid avgörs.",
+   "begransningar": [
+    "Kräver byte till Bygdegårdsförsäkringen och att bystugan hålls öppen för allmänheten."
+   ],
    "belopp": {
     "max_kr": 10000,
     "min_kr": null,
@@ -1147,6 +1228,7 @@
      "url": "https://bygdegardarna.se/skota-bygdegard/bygdegardsforsakring/bidrag-och-rabatter/"
     }
    ],
+   "kan_ge": "Främst medlemsnytta för bystugan: rådgivning, försäkring och byggnadshandläggare som hjälper till med Boverksansökningar. Småbidrag finns, t.ex. 75 % upp till 10 000 kr för vattenfelsbrytare.",
    "kontakt": "Bygdegårdarnas Riksförbund",
    "kortnamn": "Bygdegårdarna",
    "krav_checklista": [
