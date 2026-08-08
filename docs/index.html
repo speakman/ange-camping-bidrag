@@ -219,7 +219,7 @@ footer.site{
     <h2 id="h-laget">Läget i korthet</h2>
     <div class="tiles" id="tiles"></div>
 
-    <h3>Fyra förberedda ansökningar</h3>
+    <h3>Förberedda ansökningar</h3>
     <div class="cards" id="ansokningar"></div>
 
     <details class="fragor" id="fragor-box">
@@ -272,17 +272,12 @@ footer.site{
     ansökan utan kontroll först. Det databasen inte vet skrivs
     <em>ej utrett</em> — sidan gissar aldrig.</p>
 
-    <h3>Aktuella spår</h3>
-    <div id="kat-aktuell"></div>
-    <h3>Bevakas</h3>
-    <div id="kat-bevakas"></div>
-    <h3>Avfärdade — med motivering, så att de inte återforskas</h3>
-    <div id="kat-avfardad" class="avsnitt-avfardade"></div>
+    <div id="katalog-sektioner"></div>
   </section>
 
 </main>
 
-<div id="tooltip" role="status"></div>
+<div id="tooltip" aria-hidden="true"></div>
 
 <footer class="site">
   <div class="wrap">
@@ -315,22 +310,12 @@ const ORD = {
   janej:{ja:"Ja", nej:"Nej", okant:"Ej utrett"},
   konfidens:{kalla:"källa", soktraff:"sökträff", gemini:"gemini", ej_bekraftat:"ej bekräftat"},
   typ:{stanger:"stänger", oppnar:"öppnar"},
+  ansokningsstatus:{planerad:"Planerad", utkast:"Utkast", inlamnad:"Inlämnad",
+    beviljad:"Beviljad", avslag:"Avslag", tillbakadragen:"Tillbakadragen"},
 };
-const KORTNAMN = {
-  nokas:"Nokås", "leader-mittland-plus":"Leader", "bygdemedel-vasternorrland":"Bygdemedel",
-  "arvsfonden-lokalstod":"Arvsfonden lokalstöd", "arvsfonden-projektstod":"Arvsfonden projektstöd",
-  "boverket-samlingslokaler":"Boverket", "ange-riktat-bidrag":"Ånge riktat",
-  "ange-anlaggningsbidrag":"Ånge anläggning", "ange-samlingslokal-drift":"Ånge samlingslokal",
-  "region-vn-projektstod-tillvaxt":"RVN tillväxt", "region-vn-kulturstod":"RVN kultur",
-  klimatklivet:"Klimatklivet", "tillvaxtverket-eruf":"ERUF",
-  "swedbank-agarstiftelse-norrland":"Swedbank Norrland", "hela-sverige-ska-leva":"HSSL VN",
-  "bygdegardarna-medlemskap":"Bygdegårdarna", "postkodlotteriets-stiftelse":"Postkod",
-  "bjornberget-bygdemedel":"Björnberget", "lst-vn-kulturmiljovard":"Kulturmiljövård",
-  "skandia-ideer-for-livet":"Idéer för livet", "energimyndigheten-smf-energi":"SMF-energi",
-  "interreg-sverige-norge":"Interreg",
-};
-const kortnamn = (p) => KORTNAMN[p.bidrag_id || p.id] ||
-  String((p.namn || p.bidrag_id || "")).slice(0, 18);
+/* Kortnamnet kommer ur data.json (generatorn äger det) — sidan håller
+   ingen egen lista över vilka bidrag som finns. */
+const kortnamn = (r) => r.kortnamn || r.namn || r.bidrag_id || r.id || "";
 
 /* Nedräkning körs i besökarens webbläsare — filen i repot är deterministisk. */
 function dagarKvar(datum){
@@ -339,6 +324,7 @@ function dagarKvar(datum){
 }
 function dagarText(datum){
   const d = dagarKvar(datum);
+  if (!Number.isFinite(d)) return "ej utrett";
   if (d < 0)  return "passerat";
   if (d === 0) return "IDAG";
   if (d === 1) return "i morgon";
@@ -350,7 +336,7 @@ function renderaLage(data){
   const s = data.sammanfattning;
   const kommande = data.kalender
     .filter(r => r.typ === "stanger" && dagarKvar(r.datum) >= 0)
-    .sort((a,b) => a.datum < b.datum ? -1 : 1);
+    .sort((a,b) => a.datum.localeCompare(b.datum));
   const nasta = kommande[0];
   const tiles = [
     {n:s.aktuella, l:"aktuella spår"},
@@ -371,7 +357,7 @@ function renderaLage(data){
       : `<div class="deadline mono muted">löpande</div>`;
     return `<div class="card">
       <h3>${esc(post.namn || a.bidrag_id)}</h3>
-      <span class="chip">${esc(a.status)}</span>
+      <span class="chip">${esc(ORD.ansokningsstatus[a.status] || a.status)}</span>
       ${dl}
       <p>${esc(a.noteringar || "")}</p>
     </div>`;
@@ -392,57 +378,64 @@ function el(name, attrs, text){
   return e;
 }
 function renderaKalender(data){
-  const GRANS = "2027-01-31";
   const rader = data.kalender;
-  const inom = rader.filter(r => r.datum <= GRANS);
-  const senare = rader.filter(r => r.datum > GRANS);
 
-  /* skala */
-  const min = new Date("2026-08-01T00:00:00");
-  const max = new Date("2027-02-01T00:00:00");
-  const W = 980, H = 300, L = 26, R = 26, AXEL = 150;
-  const x = (d) => L + (new Date(d + "T00:00:00") - min) / (max - min) * (W - L - R);
+  /* Fönstret följer besökarens klocka: innevarande månads första dag och sex
+     månader framåt. Ingen hårdkodad höst — sidan blir aldrig en stillbild av
+     ett passerat halvår, och IDAG-linjen är alltid inne i fönstret. */
+  const idag = new Date(); idag.setHours(0,0,0,0);
+  const start = new Date(idag.getFullYear(), idag.getMonth(), 1);
+  const slut = new Date(idag.getFullYear(), idag.getMonth() + 6, 1);
+  const iso = (d) => d.getFullYear() + "-" +
+    String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+  const startIso = iso(start), slutIso = iso(slut);
 
-  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`, role:"img",
-    "aria-label":"Tidslinje över ansökningsfönster augusti 2026 till januari 2027"});
+  /* Nedre OCH övre gräns — datum utanför fönstret ritas aldrig på negativa
+     eller översvämmande koordinater utan listas i klartext nedanför. */
+  const inom = rader.filter(r => r.datum >= startIso && r.datum < slutIso);
+  const utanfor = rader.filter(r => r.datum < startIso || r.datum >= slutIso);
 
-  /* månadsstreck */
-  const manader = ["2026-08-01","2026-09-01","2026-10-01","2026-11-01","2026-12-01","2027-01-01"];
-  const namnM = ["aug","sep","okt","nov","dec","jan"];
-  manader.forEach((m,i) => {
-    const xm = x(m);
+  const W = 980, H = 320, L = 26, R = 26, AXEL = 160;
+  const x = (d) => L + (new Date(d + "T00:00:00") - start) / (slut - start) * (W - L - R);
+
+  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`,
+    "aria-label":"Tidslinje över ansökningsfönster de kommande sex månaderna"});
+
+  /* månadsstreck — genereras ur fönstret */
+  const MNAMN = ["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","dec"];
+  for (let m = new Date(start); m < slut; m = new Date(m.getFullYear(), m.getMonth()+1, 1)){
+    const xm = x(iso(m));
     svg.appendChild(el("line", {x1:xm, y1:34, x2:xm, y2:H-38,
       stroke:"var(--rule)", "stroke-width":1, "stroke-dasharray":"3 5"}));
     svg.appendChild(el("text", {x:xm+4, y:H-22, "font-size":12,
-      fill:"var(--fg-muted)", "font-family":"ui-monospace,Menlo,monospace"}, namnM[i]));
-  });
+      fill:"var(--fg-muted)", "font-family":"ui-monospace,Menlo,monospace"},
+      MNAMN[m.getMonth()] + (m.getMonth() === 0 ? " " + m.getFullYear() : "")));
+  }
   /* axel */
   svg.appendChild(el("line", {x1:L, y1:AXEL, x2:W-R, y2:AXEL, stroke:"var(--mark)", "stroke-width":2}));
 
-  /* idag — beräknas i webbläsaren */
-  const idag = new Date(); idag.setHours(0,0,0,0);
-  if (idag >= min && idag <= max){
-    const xi = L + (idag - min) / (max - min) * (W - L - R);
-    svg.appendChild(el("line", {x1:xi, y1:26, x2:xi, y2:H-38, stroke:"var(--accent)", "stroke-width":2.5}));
-    svg.appendChild(el("text", {x:xi+5, y:24, "font-size":11, fill:"var(--accent)",
-      "font-family":"ui-monospace,Menlo,monospace", "letter-spacing":"2"}, "IDAG"));
-  }
+  /* idag — alltid inne i fönstret per konstruktion */
+  const xi = x(iso(idag));
+  svg.appendChild(el("line", {x1:xi, y1:26, x2:xi, y2:H-38, stroke:"var(--accent)", "stroke-width":2.5}));
+  svg.appendChild(el("text", {x:xi+5, y:24, "font-size":11, fill:"var(--accent)",
+    "font-family":"ui-monospace,Menlo,monospace", "letter-spacing":"2"}, "IDAG"));
 
-  /* gruppera per datum, växla etiketter över/under axeln */
+  /* gruppera per datum; sida växlar per grupp och avståndet från axeln växlar
+     per sida (två nivåer), så att grannar på samma sida inte krockar */
   const grupper = [];
   inom.forEach(r => {
     const g = grupper.find(g => g.datum === r.datum);
     if (g) g.rader.push(r); else grupper.push({datum:r.datum, rader:[r]});
   });
-  grupper.sort((a,b) => a.datum < b.datum ? -1 : 1);
+  grupper.sort((a,b) => a.datum.localeCompare(b.datum));
 
   grupper.forEach((g, gi) => {
     const gx = x(g.datum);
     const upp = gi % 2 === 0;
-    const bas = upp ? AXEL - 22 : AXEL + 22;
-    const led = el("line", {x1:gx, y1:AXEL, x2:gx, y2:bas + (upp ? 8 : -8),
-      stroke:"var(--mark)", "stroke-width":1, opacity:.55});
-    svg.appendChild(led);
+    const niva = Math.floor(gi / 2) % 2;      // 0 = nära axeln, 1 = längre ut
+    const bas = upp ? AXEL - 24 - niva*38 : AXEL + 24 + niva*38;
+    svg.appendChild(el("line", {x1:gx, y1:AXEL, x2:gx, y2:bas + (upp ? 8 : -8),
+      stroke:"var(--mark)", "stroke-width":1, opacity:.55}));
     const passerad = dagarKvar(g.datum) < 0;
     g.rader.forEach((r, ri) => {
       const cy = upp ? bas - ri*16 : bas + ri*16;
@@ -454,25 +447,24 @@ function renderaKalender(data){
       c.setAttribute("aria-label",
         `${r.namn} ${ORD.typ[r.typ]} ${r.datum}${passerad ? " (passerat)" : ""}`);
       c.appendChild(el("title", {}, `${r.namn} — ${ORD.typ[r.typ]} ${r.datum}`));
-      koppplaTooltip(c, r, passerad);
+      kopplaTooltip(c, r, passerad);
       svg.appendChild(c);
-      const t = el("text", {x:gx + 9, y:cy + 4, "font-size":11.5,
+      svg.appendChild(el("text", {x:gx + 9, y:cy + 4, "font-size":11.5,
         fill: passerad ? "var(--fg-muted)" : "var(--fg)",
         "font-family":"ui-monospace,Menlo,monospace"},
-        kortnamn(r) + (r.typ === "oppnar" ? " ⊙" : ""));
-      svg.appendChild(t);
+        kortnamn(r) + (r.typ === "oppnar" ? " ⊙" : "")));
     });
-    const d = el("text", {x:gx, y: upp ? AXEL + 16 : AXEL - 9, "font-size":10,
+    /* datumetiketten följer gruppens nivå så att grannar inte skriver över varandra */
+    svg.appendChild(el("text", {x:gx, y: upp ? bas + 18 : bas - 10, "font-size":10,
       fill:"var(--fg-muted)", "text-anchor":"middle",
-      "font-family":"ui-monospace,Menlo,monospace"}, g.datum.slice(5).replace("-","/"));
-    svg.appendChild(d);
+      "font-family":"ui-monospace,Menlo,monospace"}, g.datum.slice(5).replace("-","/")));
   });
 
   $("#tidslinje").appendChild(svg);
 
-  if (senare.length){
+  if (utanfor.length){
     $("#senare").innerHTML = `<p class="small muted" style="margin:.5rem 0 0">
-      Längre fram: ` + senare.map(r =>
+      Utanför fönstret: ` + utanfor.map(r =>
         `<span class="mono">${esc(r.datum)}</span> ${esc(kortnamn(r))} ${esc(ORD.typ[r.typ])}`
       ).join(" · ") + `</p>`;
   }
@@ -502,7 +494,7 @@ function renderaKalender(data){
 }
 
 /* tooltip */
-function koppplaTooltip(elem, r, passerad){
+function kopplaTooltip(elem, r, passerad){
   const tip = $("#tooltip");
   const visa = (ev) => {
     tip.innerHTML = `<div class="t-datum">${esc(r.datum)} · ${esc(ORD.typ[r.typ])}${passerad ? " · passerat" : ""}</div>
@@ -515,6 +507,7 @@ function koppplaTooltip(elem, r, passerad){
     const tb = tip.getBoundingClientRect();
     if (tx + tb.width > innerWidth - 12) tx = innerWidth - tb.width - 12;
     if (ty + tb.height > innerHeight - 12) ty = b.top - tb.height - 8;
+    if (ty < 8) ty = b.bottom + 8;  // ryms inte ovanför → lägg under, täck inte cirkeln
     tip.style.left = Math.max(8, tx) + "px";
     tip.style.top = Math.max(8, ty) + "px";
   };
@@ -526,19 +519,22 @@ function koppplaTooltip(elem, r, passerad){
 }
 
 /* ---------- nivå 3: katalogen ---------- */
-function rad(dt, dd){ return dd ? `<dt>${dt}</dt><dd>${dd}</dd>` : ""; }
+/* OBS motsatta escapningskontrakt, avsiktligt namngivna därefter:
+   radHtml tar FÄRDIG HTML — anroparen ansvarar för esc().
+   lista escapar SJÄLV varje element. */
+function radHtml(dt, ddHtml){ return ddHtml ? `<dt>${dt}</dt><dd>${ddHtml}</dd>` : ""; }
 function lista(rubrik, arr){
-  if (!arr || !arr.length) return "";
+  if (!Array.isArray(arr) || !arr.length) return "";
   return `<h4 class="overline" style="margin:.9rem 0 .2rem">${esc(rubrik)}</h4>
     <ul>${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
 }
 function beloppText(p){
   const b = p.belopp || {};
-  const delar = [];
-  if (b.min_kr != null && b.max_kr != null) delar.push(fmtKr(b.min_kr) + " – " + fmtKr(b.max_kr));
-  else if (b.max_kr != null) delar.push("upp till " + fmtKr(b.max_kr));
-  else if (b.min_kr != null) delar.push("lägst " + fmtKr(b.min_kr));
-  return esc(delar.join(" ")) || (b.notering ? "" : "ej utrett");
+  let spann = "";
+  if (b.min_kr != null && b.max_kr != null) spann = fmtKr(b.min_kr) + " – " + fmtKr(b.max_kr);
+  else if (b.max_kr != null) spann = "upp till " + fmtKr(b.max_kr);
+  else if (b.min_kr != null) spann = "lägst " + fmtKr(b.min_kr);
+  return esc(spann) || (b.notering ? "" : "ej utrett");
 }
 function fonsterText(p){
   const f = (p.ansokningsfonster || []).map(w => {
@@ -556,10 +552,17 @@ function renderaPost(p){
     (st !== "avfardad" && p.relevans ? `<span class="chip ${esc(p.relevans)}">relevans ${esc(ORD.relevans[p.relevans])}</span>` : "") +
     `<span class="chip">${esc(ORD.sida[p.sida] || "ej utrett")}</span>`;
   const med = p.medfinansiering || {};
-  const kallor = (p.kallor || []).map(k =>
-    `<li class="kallista"><span class="chip k-${esc(k.konfidens)}">${esc(ORD.konfidens[k.konfidens] || k.konfidens)}</span>
-     <a href="${esc(k.url)}" rel="noopener">${esc(k.url)}</a>
-     <span class="muted mono small">hämtad ${esc(k.hamtad || "?")}</span></li>`).join("");
+  const kallor = (p.kallor || []).map(k => {
+    // Endast http(s) blir klickbart — en javascript:-URL i databasen ska
+    // renderas som text, inte som körbar länk. Försvar på djupet; datan är vår.
+    const klickbar = /^https?:\/\//i.test(k.url || "");
+    const lank = klickbar
+      ? `<a href="${esc(k.url)}" target="_blank" rel="noopener noreferrer">${esc(k.url)}</a>`
+      : `<span class="mono">${esc(k.url || "")}</span>`;
+    return `<li class="kallista"><span class="chip k-${esc(k.konfidens)}">${esc(ORD.konfidens[k.konfidens] || k.konfidens)}</span>
+     ${lank}
+     <span class="muted mono small">hämtad ${esc(k.hamtad || "?")}</span></li>`;
+  }).join("");
   const motiv = st === "avfardad" ? p.avfardad_motivering : p.relevans_motivering;
   const fonster = fonsterText(p);
 
@@ -573,14 +576,14 @@ function renderaPost(p){
     <div class="body">
       ${motiv ? `<blockquote class="motiv">${esc(motiv)}</blockquote>` : ""}
       <dl>
-        ${rad("Vem får söka", esc(p.vem_far_soka || "ej utrett"))}
-        ${rad("Belopp", [beloppText(p), esc((p.belopp || {}).notering || "")].filter(Boolean).join("<br>"))}
-        ${rad("Stödandel", p.stodandel_procent != null ? esc(p.stodandel_procent) + " %" : "ej utrett")}
-        ${rad("Utbetalning", esc(ORD.utbetalning[p.utbetalning] || "Ej utrett"))}
-        ${rad("Statsstöd", esc(ORD.statsstod[p.statsstod] || "Ej utrett"))}
-        ${rad("Ideell tid räknas", esc(ORD.janej[med.ideell_tid_racknas] || "Ej utrett"))}
-        ${rad("Kontakt", esc(p.kontakt || ""))}
-        ${st === "avfardad" ? rad("Avfärdad", esc(p.avfardad_datum || "")) : rad("Senast kontrollerad", esc(p.senast_kontrollerad || ""))}
+        ${radHtml("Vem får söka", esc(p.vem_far_soka || "ej utrett"))}
+        ${radHtml("Belopp", [beloppText(p), esc((p.belopp || {}).notering || "")].filter(Boolean).join("<br>"))}
+        ${radHtml("Stödandel", p.stodandel_procent != null ? esc(p.stodandel_procent) + " %" : "ej utrett")}
+        ${radHtml("Utbetalning", esc(ORD.utbetalning[p.utbetalning] || "Ej utrett"))}
+        ${radHtml("Statsstöd", esc(ORD.statsstod[p.statsstod] || "Ej utrett"))}
+        ${radHtml("Ideell tid räknas", esc(ORD.janej[med.ideell_tid_racknas] || "Ej utrett"))}
+        ${radHtml("Kontakt", esc(p.kontakt || ""))}
+        ${st === "avfardad" ? radHtml("Avfärdad", esc(p.avfardad_datum || "")) : radHtml("Senast kontrollerad", esc(p.senast_kontrollerad || ""))}
       </dl>
       ${lista("Ansökningsfönster", fonster)}
       ${lista("Spärrar och varningar", p.blockerare)}
@@ -592,28 +595,61 @@ function renderaPost(p){
   </details>`;
 }
 function renderaKatalog(data){
-  const per = (s) => data.bidrag.filter(p => p.status === s).map(renderaPost).join("");
-  $("#kat-aktuell").innerHTML = per("aktuell");
-  $("#kat-bevakas").innerHTML = per("bevakas");
-  $("#kat-avfardad").innerHTML = per("avfardad");
+  /* Sektionerna drivs av data.statusordning — en ny status i databasen blir en
+     ny rubrik här, aldrig tyst försvunna poster. */
+  const ordn = data.statusordning || [];
+  const kanda = new Set(ordn.map(o => o.status));
+  let html = ordn.map(o => {
+    const poster = data.bidrag.filter(p => p.status === o.status);
+    if (!poster.length) return "";
+    const kls = o.status === "avfardad" ? ' class="avsnitt-avfardade"' : "";
+    return `<h3>${esc(o.rubrik)}</h3><div${kls}>${poster.map(renderaPost).join("")}</div>`;
+  }).join("");
+  const ovriga = data.bidrag.filter(p => !kanda.has(p.status));
+  if (ovriga.length){
+    html += `<h3>Övriga</h3><div>${ovriga.map(renderaPost).join("")}</div>`;
+  }
+  $("#katalog-sektioner").innerHTML = html;
 }
 
 /* ---------- start ---------- */
 async function ladda(){
   let data;
   try {
-    data = await (await fetch("data.json")).json();
+    const svar = await fetch("data.json");
+    if (!svar.ok) throw new Error("HTTP " + svar.status);
+    data = await svar.json();
   } catch (fel) {
     $("#stamp").textContent = "kunde inte läsa data.json";
     console.error(fel);
     return;
   }
-  $("#stamp").textContent = "källäge " + (data.senaste_hamtning || "okänt");
+  /* Varje nivå renderas i egen try — ett fel i en sektion får synas DÄR,
+     inte lämna en halv sida som ser färdig ut. */
+  const delar = [
+    ["#laget", renderaLage],
+    ["#kalendern", renderaKalender],
+    ["#katalogen", renderaKatalog],
+  ];
+  let allaOk = true;
+  for (const [sektion, fn] of delar){
+    try {
+      fn(data);
+    } catch (fel) {
+      allaOk = false;
+      console.error(sektion, fel);
+      const p = document.createElement("p");
+      p.className = "small";
+      p.style.color = "var(--accent)";
+      p.textContent = "Den här sektionen kunde inte renderas — fel i sidans skript. " +
+        "Uppgifterna finns i data.json.";
+      document.querySelector(sektion).appendChild(p);
+    }
+  }
+  $("#stamp").textContent = "källäge " + (data.senaste_hamtning || "okänt") +
+    (allaOk ? "" : " · RENDERINGSFEL");
   $("#f-hamtning").textContent = data.senaste_hamtning || "ej utrett";
   $("#f-uppdaterad").textContent = data.databas_uppdaterad || "ej utrett";
-  renderaLage(data);
-  renderaKalender(data);
-  renderaKatalog(data);
 }
 ladda();
 </script>

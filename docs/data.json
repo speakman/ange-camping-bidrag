@@ -5,7 +5,7 @@
    "beslut_datum": null,
    "bidrag_id": "ange-riktat-bidrag",
    "deadline": "2026-08-25",
-   "mapp": "ange-riktat-bidrag-2026",
+   "kortnamn": "Ånge riktat",
    "noteringar": "Väntar på styrelsens val av vilken utrustning eller förbättring som ska sökas. Värdet ligger lika mycket i handläggarkontakten som i beloppet.",
    "sokt_belopp_kr": null,
    "status": "planerad"
@@ -15,7 +15,7 @@
    "beslut_datum": null,
    "bidrag_id": "bygdemedel-vasternorrland",
    "deadline": "2026-09-15",
-   "mapp": "bygdemedel-vasternorrland-2026",
+   "kortnamn": "Bygdemedel",
    "noteringar": "BLOCKERAD tills Länsstyrelsen svarat på var gränsen mot affärsverksamhet går — men rättsläget ser ljusare ut efter genomlysningen 2026-08-08: spärren är webbmall utan författningsstöd och grannlänspraxis beviljar föreningsägda bryggor och badplatser. Ring Henrik Skyttberg 0611-34 90 00, fråga även om ideellt arbete räknas, och begär ut handboken för bygdeavgiftsmedel.",
    "sokt_belopp_kr": null,
    "status": "planerad"
@@ -25,7 +25,7 @@
    "beslut_datum": null,
    "bidrag_id": "leader-mittland-plus",
    "deadline": "2026-09-15",
-   "mapp": "leader-mittland-plus-2026",
+   "kortnamn": "Leader",
    "noteringar": "Siktar på oktobermötet: ansökan senast 15 september, LAG-beslut 13 oktober, formellt JV-beslut 3-5 månader senare. Datumkonflikten är löst (6 augusti gällde och har passerat). Kräver medlemskap (100 kr) OCH fullmakt till Jordbruksverket (1-2 veckor) före ansökan. Ring kansliet om 30-procentskravets status och om wifi bedöms som allmännytta (40-100 %, inget tak) eller kommersiell nytta (40-70 %, tak 300 000 kr).",
    "sokt_belopp_kr": null,
    "status": "planerad"
@@ -35,7 +35,7 @@
    "beslut_datum": null,
    "bidrag_id": "nokas",
    "deadline": "2026-08-31",
-   "mapp": "nokas-2026",
+   "kortnamn": "Nokås",
    "noteringar": "KONTAKT INITIERAD med Skogsstyrelsen 2026-08-05 (Daniel). Genomlysningen 2026-08-08 löste den ena frågan skriftligt: ideellt arbete räknas (340 kr/tim som godkänd kostnad på 70 %-posten; på ledens fasta ersättning redovisas inga kostnader). Statsstödsfrågan är också löst — de minimis enligt (EU) 2023/2831. Kvar för telefon: om 31 augusti är formell frist eller prioriteringsgräns, och om 5 km-gränsen betyder \"högst\" eller \"under\". Utkastet kan inte skrivas förrän styrelsen valt vilka leder och friluftsanordningar som ska sökas.",
    "sokt_belopp_kr": null,
    "status": "planerad"
@@ -90,6 +90,7 @@
     }
    ],
    "kontakt": "Henrik Skyttberg, handläggare, 0611-34 90 00 · Mikael Öström, rekvisitioner, 072-226 47 88 · Länsstyrelsen Västernorrland",
+   "kortnamn": "Bygdemedel",
    "krav_checklista": [
     "Ansökan via Länsstyrelsens e-tjänst.",
     "Mötesprotokoll som visar att föreningen beslutat att ansöka.",
@@ -100,21 +101,12 @@
     "Avgränsa ansökan till det som är gratis och öppet för alla — badplats, iläggningsramp, lekpark, leder — och beskriv det som allmännyttig anläggning för bygden, skilt från campingdriften."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "badplats",
-    "brygga",
-    "ilaggningsramp",
-    "leder",
-    "lekpark",
-    "bystugan"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": null
    },
    "namn": "Bygdemedel",
-   "nasta_kontroll": "2026-09-10",
    "niva": "stat",
    "relevans": "hog",
    "relevans_motivering": "Ånge är en av sex berättigade kommuner, och föreningslokaler samt stigar och leder är uttryckliga ändamål. Exempellistan är just EXEMPEL — att bryggor och badplatser inte nämns är ingen uteslutning, och Länsstyrelsen Jämtland förutsätter uttryckligen bryggor som stödbart ändamål. Spärren \"sådant som används i en affärsverksamhet\" är nationell WEBBMALL utan motsvarighet i förordningen (1998:928 nämner tvärtom näringsliv som legitimt ändamål), och praxis i Jämtland 2010 beviljade föreningsägda bryggor, båthamnar och badplatser men avstyrkte privatägda campingar. Gränsen för Västernorrland är fortfarande en telefonfråga — men läget är LJUSARE än tidigare bedömt. OBS: det gamla brygg-indiciet (Järvsands byalag) visade sig gälla en vindkraftsfond, inte bygdemedel.",
@@ -166,26 +158,18 @@
     }
    ],
    "kontakt": "ansokan@bjornbergetbygdemedel.se",
+   "kortnamn": "Björnberget",
    "krav_checklista": [
     "Ansökan enligt instruktionen på bjornbergetvindkraft.se, till ansokan@bjornbergetbygdemedel.se.",
     "Beskriv projektet mot syftet: tillgänglighet till naturvärden, idrott, kultur — och nyttan för lokalsamhället."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "leder",
-    "badplats",
-    "lekpark",
-    "tillganglighet",
-    "friluftsliv",
-    "besoksnaring"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": null
    },
    "namn": "Bygdemedel för Björnberget",
-   "nasta_kontroll": "2027-05-01",
    "niva": "privat",
    "relevans": "hog",
    "relevans_motivering": "Enda finansiären i hela kartan som är SPECIFIK för Ånge kommun och träffar föreningens allmännyttiga profil rakt: \"ökad tillgänglighet till naturvärden, idrott eller kulturella aktiviteter\" är själva syftet, och besöksnäring, natur/miljö och förädling av lokala tillgångar är uttalade bedömningsgrunder. Område B (2/3 av medlen) är öppet för föreningar i hela kommunen. Privat bygdemedel — ingen myndighet, sannolikt ingen statsstödsproblematik, men obekräftat.",
@@ -234,6 +218,7 @@
     }
    ],
    "kontakt": "Allmänna arvsfonden · lokalstöd 08-700 09 40 (tis/tors 9.00–11.00)",
+   "kortnamn": "Arvsfonden lokalstöd",
    "krav_checklista": [
     "Ansökan i tre steg i Kammarkollegiets e-tjänst (BankID/Freja eID+); ALLA behöriga firmatecknare signerar.",
     "Beskrivning av den nya verksamheten och vilken målgrupp den riktas till.",
@@ -245,19 +230,12 @@
     "Ring och bolla idén före ansökan: 08-700 09 40, tis/tors 9–11 (lokalstödets telefontid)."
    ],
    "lopande_ansokan": true,
-   "matchade_behov": [
-    "tillganglighet",
-    "bystugan",
-    "servicehus",
-    "lekpark"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "nej",
     "kommun_kravs": false,
     "krav_procent": 20
    },
    "namn": "Lokalstöd",
-   "nasta_kontroll": "2026-10-01",
    "niva": "stat",
    "relevans": "hog",
    "relevans_motivering": "Högst stödandel av allt i kartan — 80 procent av godkända kostnader, max 10 mkr inkl moms ELLER 8 mkr exkl moms. Löpande ansökan, ingen deadline, och utbetalning i FÖRSKOTT mot rekvisition — ovanligt likviditetsvänligt. Äldre som fyllt 65 är godkänd målgrupp, vilket öppnar ett spår som inte kräver barnverksamhet. Ägandet av marken gör bygge väsentligt enklare. Bedömningskriteriet heter numera \"Utvecklande\" (ett av tre: Utvecklande, Delaktighet, Överlevnad) — ordet \"nyskapande\" finns inte längre hos Arvsfonden.",
@@ -332,6 +310,7 @@
     }
    ],
    "kontakt": "Skogsstyrelsen 010-172 10 00",
+   "kortnamn": "Nokås",
    "krav_checklista": [
     "Ansökan via Mina sidor på skogsstyrelsen.se, eller på särskild blankett.",
     "OBLIGATORISK bilaga: karta i skala 1:20 000 eller större med åtgärderna markerade. Underlag för kostnadsberäkning är frivillig bilaga.",
@@ -340,19 +319,12 @@
     "Ansök INNAN arbetet påbörjas — påbörjade åtgärder ger inget stöd."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "leder",
-    "friluftsanordningar",
-    "tillganglighet",
-    "friluftsliv"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "ja",
     "kommun_kravs": false,
     "krav_procent": 30
    },
    "namn": "Nokås — natur- och kulturmiljövårdsåtgärder i skogen",
-   "nasta_kontroll": "2026-09-01",
    "niva": "stat",
    "relevans": "hog",
    "relevans_motivering": "Föreningen äger skogen själv, så inget markägartillstånd behövs. Stödet täcker uttryckligen stigskötsel, friluftsanordningar och att röja, rensa och märka vandringsled — precis det en camping vill ha. 70 procent i stöd. Fönstret stänger 31 augusti 2026 för just dessa åtgärder.",
@@ -428,6 +400,7 @@
     }
    ],
    "kontakt": "info@mittlandplus.se · 070-316 23 66 (Erika Larsson Karinaho) · Idrottens hus, Gärdehov, Sundsvall",
+   "kortnamn": "Leader",
    "krav_checklista": [
     "Bli medlem i föreningen Leader Mittland Plus (100 kr/år).",
     "Kontakta kansliet innan ansökan skrivs (info@mittlandplus.se).",
@@ -441,21 +414,12 @@
     "Begär de minimis-avstämning mot det befintliga Leader-projektet."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "wifi",
-    "tillganglighet",
-    "bystugan",
-    "hamn",
-    "lekpark",
-    "besoksnaring"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "ja",
     "kommun_kravs": false,
     "krav_procent": null
    },
    "namn": "Projektstöd genom Leader Mittland Plus",
-   "nasta_kontroll": "2026-09-10",
    "niva": "eu",
    "relevans": "hog",
    "relevans_motivering": "Enda finansiären som täcker Ånge, värderar ideell arbetstid, saknar uppenbar spärr mot verksamhet som tar betalt och redan känner föreningen — sidfoten på angecamping.com anger Leader Mittland Plus som stödgivare. Enda vägen till wifi, eftersom ingen finansiär har en egen post för det. Leader efterlyser dessutom aktivt projekt för \"stärkt föreningsliv\" och \"hälsa och framtidstro\" (2025-09-15). VARNING: mittlandplus.se är ett ARKIV över programperioden 2014–2022 — använd bara leadermitt.se och Jordbruksverket som källor.",
@@ -500,22 +464,17 @@
     }
    ],
    "kontakt": "073-030 70 11 · info@swedbanksagarstiftelsenorrland.se",
+   "kortnamn": "Swedbank Norrland",
    "krav_checklista": [
     "Ansökan löpande via formuläret på swedbanksagarstiftelsenorrland.se/bidrag/."
    ],
    "lopande_ansokan": true,
-   "matchade_behov": [
-    "kultur",
-    "utveckling",
-    "anlaggning"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": null
    },
    "namn": "Bidrag från Swedbanks Ägarstiftelse Norrland",
-   "nasta_kontroll": "2026-10-01",
    "niva": "stiftelse",
    "relevans": "medel",
    "relevans_motivering": "Verksamhetsområdet är Västerbotten och Västernorrland, och föreningar får söka. Detta är svaret på frågan om vilken sparbanksstiftelse som täcker Ånge. Belopp och beslutsordning är nu publicerade på undersidan /bidrag/: oftast 5 000–40 000 kr, löpande ansökan, beslut två gånger per år vid möten i april och oktober. Nästa beslutstillfälle: oktober 2026.",
@@ -559,21 +518,18 @@
     }
    ],
    "kontakt": "Länsstyrelsen Västernorrland, kulturmiljöenheten",
+   "kortnamn": "Kulturmiljövård",
    "krav_checklista": [
     "Utred först om bystugan har dokumenterat kulturhistoriskt värde (lokalt/regionalt räcker).",
     "Ansökan till Länsstyrelsen senast 31 december för arbeten 2027."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "bystugan"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": null
    },
    "namn": "Bidrag till kulturhistoriska miljöer",
-   "nasta_kontroll": "2026-11-01",
    "niva": "stat",
    "relevans": "medel",
    "relevans_motivering": "Direkt matchning mot bystugans upprustning OM byggnaden har kulturhistoriskt värde — formellt skydd krävs INTE, även \"särskild lokal eller regional betydelse\" räcker. 20–80 % av de kulturhistoriskt motiverade ÖVERkostnaderna (antikvariska merkostnader, inte hela renoveringen). Relevansen står och faller med bystugans kulturmiljöstatus, som är outredd.",
@@ -618,22 +574,19 @@
     }
    ],
    "kontakt": "Ånge kommun 0690-25 01 00",
+   "kortnamn": "Ånge samlingslokal",
    "krav_checklista": [
     "Ansökan via e-tjanster.ange.se/bidrsamlings.",
     "Verksamhetsberättelse, ekonomisk rapport, verksamhetsplan, årsmötesprotokoll, revisionsberättelse (riktlinjernas allmänna bilagekrav).",
     "Redogörelse för hur lokalen används och av vilka."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "bystugan"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": null
    },
    "namn": "Drift- och underhållsbidrag till samlingslokal",
-   "nasta_kontroll": "2026-11-01",
    "niva": "kommun",
    "relevans": "medel",
    "relevans_motivering": "Bystugan är kandidaten. Kravet på \"allmän föreningsverksamhet\" pekar åt samma håll som Boverkets krav — de två spåren stärker varandra.",
@@ -693,6 +646,7 @@
     }
    ],
    "kontakt": "Naturvårdsverket · Länsstyrelsen Västernorrland (e-tjänsten)",
+   "kortnamn": "Klimatklivet",
    "krav_checklista": [
     "Ansökan via länsstyrelsernas e-tjänstportal (öppnar 8.00 första dagen, stänger 16.30 sista).",
     "Beräkning av klimatnytta — minskade utsläpp av växthusgaser.",
@@ -700,18 +654,12 @@
     "Läs Naturvårdsverkets sidor direkt före ansökan — flera uppgifter här är andrahandskällor."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "laddstolpar",
-    "solceller",
-    "energi"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": 50
    },
    "namn": "Klimatklivet",
-   "nasta_kontroll": "2026-10-01",
    "niva": "stat",
    "relevans": "medel",
    "relevans_motivering": "Laddstolpar är sökbara, men publik laddning avgörs genom anbud som rangordnas efter KLIMATNYTTA PER INVESTERAD KRONA (inte lägst kr/kW som tidigare stod här) — föreningen konkurrerar ändå mot kommersiella laddoperatörer. Spåret \"byte till fossilfri el och värme\" i den ordinarie omgången gäller uppvärmning; för SOLCELLER finns en obekräftad men allvarlig varning om att elproduktion inte får Klimatklivet-stöd — telefonfråga innan solcellsplaner byggs på det här spåret.",
@@ -749,24 +697,18 @@
     }
    ],
    "kontakt": "Allmänna arvsfonden",
+   "kortnamn": "Arvsfonden projektstöd",
    "krav_checklista": [
     "Ansökan löpande via Kammarkollegiets e-tjänst; handläggningstid 4–6 månader.",
     "Ring och bolla idén: Arvsfondens telefontider."
    ],
    "lopande_ansokan": true,
-   "matchade_behov": [
-    "tillganglighet",
-    "friluftsliv",
-    "aldre",
-    "gemenskap"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "nej",
     "kommun_kravs": false,
     "krav_procent": null
    },
    "namn": "Projektstöd",
-   "nasta_kontroll": "2026-10-01",
    "niva": "stat",
    "relevans": "medel",
    "relevans_motivering": "Distinkt stödform från lokalstödet: metod- och verksamhetsutveckling UTAN beloppstak, projektperiod 1–3 år, kräver bara ETT års verksamhet. Passar utvecklingsprojekt (tillgängligt friluftsliv, verksamhet för 65+) snarare än byggen. Samma tre kriterier och fyra målgrupper som lokalstödet — samma grundfråga om föreningens målgruppsverksamhet.",
@@ -805,23 +747,19 @@
     }
    ],
    "kontakt": "Region Västernorrland",
+   "kortnamn": "RVN tillväxt",
    "krav_checklista": [
     "Intresseanmälan för projektrådgivning via rvn.se.",
     "Kontakta handläggare innan ansökan skrivs.",
     "Läs guiden 'Att skriva en ansökan om projektstöd'."
    ],
    "lopande_ansokan": true,
-   "matchade_behov": [
-    "besoksnaring",
-    "utveckling"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": 50
    },
    "namn": "Projektstöd tillväxt",
-   "nasta_kontroll": "2026-10-01",
    "niva": "region",
    "relevans": "medel",
    "relevans_motivering": "Ideell sektor får uttryckligen söka. Stödandelen upp till 50 % (60 % med EU-strukturfonder) och utbetalning i efterskott är nu bekräftade ur regionens egen ansökningssida. Beslutsnivåerna antyder projektstorlekar: upp till 500 000 kr direktörsbeslut, upp till 2 mkr nämnd, däröver styrelse. \"Löpande ansökan\" är dock inte ordagrant belagt — inget utlysningsdatum finns för standardstödet.",
@@ -874,6 +812,7 @@
     }
    ],
    "kontakt": "Ånge kommun 0690-25 01 00 (växel) · ange@ange.se · therese.didrick@ange.se (direkt 0690-25 02 28 enligt kommunens kultursida)",
+   "kortnamn": "Ånge riktat",
    "krav_checklista": [
     "Ansökan via e-tjanster.ange.se/bidrriktat.",
     "Verksamhetsberättelse.",
@@ -884,18 +823,12 @@
     "EFTER beviljande, före utbetalning: redovisning av kostnaden med underskriven sammanställning samt kopior på faktura och betalningskvittens."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "utrustning",
-    "forbattringar",
-    "verksamhetsutveckling"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": null
    },
    "namn": "Riktat bidrag till föreningar",
-   "nasta_kontroll": "2026-09-01",
    "niva": "kommun",
    "relevans": "medel",
    "relevans_motivering": "Minst pengar och minst arbete, men bygger den handläggarkontakt som både Boverkets 30-procentskrav och LONA-vägen förutsätter. Deadline 25 augusti.",
@@ -943,6 +876,7 @@
     }
    ],
    "kontakt": "Ånge kommun 0690-25 01 00 · therese.didrick@ange.se",
+   "kortnamn": "Ånge anläggning",
    "krav_checklista": [
     "Ansökan via e-tjanster.ange.se/bidranlaggn.",
     "Stadgar.",
@@ -950,18 +884,12 @@
     "Underlag som visar att föreningen äger anläggningen."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "servicehus",
-    "bystugan",
-    "anlaggning"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": null
    },
    "namn": "Anläggningsbidrag kategori A — föreningsägd anläggning",
-   "nasta_kontroll": "2026-11-01",
    "niva": "kommun",
    "relevans": "lag",
    "relevans_motivering": "NEDGRADERAD 2026-08-03. Ägandet är bekräftat, men kommunens sida kräver dessutom barn- och ungdomsverksamhet: \"Driftbidrag till föreningar med egna anläggningar som har barn och ungdomsverksamhet.\" Ägandet löste en av två spärrar, inte båda. Slutsatsen att föreningen kvalificerar var för snabb.",
@@ -1015,6 +943,7 @@
     }
    ],
    "kontakt": "Boverket",
+   "kortnamn": "Boverket",
    "krav_checklista": [
     "FRÅGA FÖRST: ring Boverket och fråga om en förening vars huvudsakliga verksamhet är camping över huvud taget kan söka. Allt annat är bortkastat om svaret är nej.",
     "Ansökan via Boverkets e-tjänst 1 september–1 december, kräver e-legitimation.",
@@ -1024,17 +953,12 @@
     "Byggnadshandläggare hos Bygdegårdarnas Riksförbund m.fl. kan hjälpa medlemmar med ansökan."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "bystugan",
-    "tillganglighet"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": 0
    },
    "namn": "Investeringsbidrag till allmänna samlingslokaler",
-   "nasta_kontroll": "2026-10-15",
    "niva": "stat",
    "relevans": "lag",
    "relevans_motivering": "NEDGRADERAD 2026-08-03 efter granskning. Posten byggdes ursprungligen på förordning (1996:1593), som UPPHÄVDES 2016. Gällande rätt är förordning (2016:1367), och dess 5 § kräver att sökanden är en förening \"vars huvudsakliga verksamhet är att tillhandahålla allmänna samlingslokaler\". Ånge Campings huvudsakliga verksamhet är camping. Spåret är sannolikt stängt oavsett hur bystugan används, och måste bekräftas med Boverket innan någon tid läggs på det. Genomlysningen 2026-08-08 bekräftade 5 § ordagrant mot gällande lydelse och fann samtidigt en prioriteringsregel som GYNNAR Ånge om huvudsaklighetsfrågan löses: Boverket ska särskilt prioritera samlingslokaler i områden som saknar närhet till offentlig och kommersiell service (16 b §).",
@@ -1081,23 +1005,19 @@
     }
    ],
    "kontakt": "Region Västernorrland",
+   "kortnamn": "RVN kultur",
    "krav_checklista": [
     "Ansökan via rvn.se.",
     "Projektbeskrivning med regional betydelse.",
     "Budget med medfinansiering från minst en extern part — biljettintäkter räknas."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "arrangemang",
-    "kultur"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": 50
    },
    "namn": "Projektstöd inom kulturområdet",
-   "nasta_kontroll": "2026-10-01",
    "niva": "region",
    "relevans": "lag",
    "relevans_motivering": "Undantar uttryckligen anläggningsinvesteringar och utrustningsinköp, alltså ingen väg till bryggor eller servicehus. Möjlig för arrangemang och programverksamhet om föreningen vill åt det hållet.",
@@ -1135,21 +1055,17 @@
     }
    ],
    "kontakt": "Energimyndigheten",
+   "kortnamn": "SMF-energi",
    "krav_checklista": [
     "Läs utlysningssidan manuellt och kontrollera fönster + behörighet."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "energi",
-    "solceller"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": 50
    },
    "namn": "Investeringsstöd till små och medelstora företag för effektivare energianvändning",
-   "nasta_kontroll": "2026-10-01",
    "niva": "stat",
    "relevans": "medel",
    "relevans_motivering": "Kan träffa campingens energibehov (ekonomiska sidan): små företag upp till 50 % av stödberättigande kostnad, max 4 mkr. Kräver genomförd energikartläggning FÖRST. Aktuell ansökningsperiod gick inte att bekräfta — energimyndigheten.se blockerar maskinell hämtning, samma mönster som Naturvårdsverket och Boverket.",
@@ -1192,24 +1108,19 @@
     }
    ],
    "kontakt": "Bygdegårdarnas Riksförbund",
+   "kortnamn": "Bygdegårdarna",
    "krav_checklista": [
     "Läs bygdegardarna.se/om-oss/medlemskap/.",
     "Läs förbundets finansieringskarta 'Här finns pengarna'.",
     "Utred vad Bygdegårdsförsäkringen kostar jämfört med nuvarande försäkring."
    ],
    "lopande_ansokan": true,
-   "matchade_behov": [
-    "bystugan",
-    "radgivning",
-    "forsakring"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": 50
    },
    "namn": "Medlemskap i Bygdegårdarnas Riksförbund",
-   "nasta_kontroll": "2026-11-01",
    "niva": "stiftelse",
    "relevans": "medel",
    "relevans_motivering": "Inte ett bidrag i sig, utan en väg in. Medlemskap skulle stärka bystugans status som allmän samlingslokal — exakt det Boverkets bidrag kräver. Ger även rådgivning, försäkring och förbundets egen finansieringskarta.",
@@ -1257,20 +1168,17 @@
     }
    ],
    "kontakt": "Tillväxtverket · mellerstanorrland@tillvaxtverket.se",
+   "kortnamn": "ERUF",
    "krav_checklista": [
     "Bevaka utlysningar på tillvaxtverket.se (Mellersta Norrland)."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "besoksnaring"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": 60
    },
    "namn": "ERUF Mellersta Norrland",
-   "nasta_kontroll": "2026-12-01",
    "niva": "eu",
    "relevans": "lag",
    "relevans_motivering": "Djupresearchad 2026-08-08 — seedkartans bedömning \"bevaka, sök inte direkt\" HÅLLER, nu på belagda grunder: programmet är byggt kring intermediära aktörer (\"inte uppbyggt för att små och medelstora företag ska vara direkta projektägare\"), stödandelen är max 40 % (50 % endast specifikt mål 1.7), utbetalning i efterskott mot rekvisition (förskott max 400 000 kr endast vid svag likviditet), och sökande ska ha \"god likviditet\" och projektbokföring. Ideella föreningar är formellt behöriga. Höstutlysningen 2026 (20 aug–20 sep) saknar besöksnäringsmål; 2027 års utlysning aviseras under hösten 2026.",
@@ -1306,21 +1214,17 @@
     }
    ],
    "kontakt": "Stiftelsen Idéer för livet",
+   "kortnamn": "Idéer för livet",
    "krav_checklista": [
     "Digital ansökan efter inloggning på ideerforlivet.se."
    ],
    "lopande_ansokan": true,
-   "matchade_behov": [
-    "lekpark",
-    "gemenskap"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": null
    },
    "namn": "Idéer för livet",
-   "nasta_kontroll": "2026-12-01",
    "niva": "stiftelse",
    "relevans": "lag",
    "relevans_motivering": "Möjlig men svag matchning: \"sociala mötesplatser\" för barn/unga (upp till 25 år) finns bland områdena, men stödet går till material/utbildning/marknadsföring — ingen anläggning eller byggnation nämns, och fasta kostnader undantas uttryckligen.",
@@ -1359,21 +1263,17 @@
     }
    ],
    "kontakt": "Interreg Sverige-Norge",
+   "kortnamn": "Interreg",
    "krav_checklista": [
     "Bevaka kommande utlysningar på interreg-sverige-norge.com."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "besoksnaring",
-    "friluftsliv"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": 35
    },
    "namn": "Interreg Sverige-Norge (Nordens Gröna Bälte)",
-   "nasta_kontroll": "2027-01-15",
    "niva": "eu",
    "relevans": "lag",
    "relevans_motivering": "Turism är prioriterat område och Västernorrland ingår i delområdet Nordens Gröna Bälte, men kravet på en norsk partner och flerårig projektorganisation passar illa för en förening utan anställda. 2026 års omgång för huvudprojekt (15 jan–15 feb) är stängd.",
@@ -1412,21 +1312,17 @@
     }
    ],
    "kontakt": "Hela Sverige ska leva Västernorrland · 010-489 13 50 · info@helasverige.se",
+   "kortnamn": "HSSL Västernorrland",
    "krav_checklista": [
     "Ring länsavdelningen och bekräfta villkoren innan något annat görs."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "utveckling",
-    "lokal_utveckling"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": null
    },
    "namn": "Stimulansbidrag, länsavdelningen Västernorrland",
-   "nasta_kontroll": "2026-09-20",
    "niva": "stiftelse",
    "relevans": "lag",
    "relevans_motivering": "RÄTTAD 2026-08-08: de tidigare uppgifterna (40 000 kr totalt, deadline 30 september, e-postansökan) tillhörde länsavdelningen FYRBODAL i Västra Götaland — inte Västernorrland. Ånge täcks av länsavdelningen Västernorrland (en av sju kommuner), som har ett EGET stimulansbidrag med uppgivet maxbelopp 10 000 kr per projekt — men totalpott, deadline och ansökningsform är inte publicerade. Litet men billigt att söka om detaljerna bekräftas.",
@@ -1464,24 +1360,19 @@
     }
    ],
    "kontakt": "08-509 270 80",
+   "kortnamn": "Postkod",
    "krav_checklista": [
     "Läs ansökningsguiden på postkodlotterietsstiftelse.se/sok-stod/ansokningsguide/.",
     "Ansökan lämnas via Lime Forms, olika formulär för varje stödspår.",
     "Välj spår: 'Sverige och övriga världen' eller 'Grannskapsinitiativet'."
    ],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "tillganglighet",
-    "friluftsliv",
-    "gemenskap"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
     "krav_procent": null
    },
    "namn": "Stöd från Postkodlotteriets stiftelse",
-   "nasta_kontroll": "2026-11-01",
    "niva": "stiftelse",
    "relevans": "lag",
    "relevans_motivering": "Delar ut ca 200 mkr per år, men konkurrensen är hård och stiftelsen söker projekt som \"utmanar, inspirerar och skapar förändring\". Grannskapsinitiativet är det mindre och rimligare spåret för en lokal förening.",
@@ -1515,11 +1406,9 @@
     }
    ],
    "kontakt": "Riksidrottsförbundet",
+   "kortnamn": "Anläggningsstöd",
    "krav_checklista": [],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "anlaggning"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
@@ -1561,12 +1450,9 @@
     }
    ],
    "kontakt": "0470-76 31 30 · info@familjenkampradsstiftelse.se",
+   "kortnamn": "Anslag från Familjen Kamprads stiftelse",
    "krav_checklista": [],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "landsbygd",
-    "aldre"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
@@ -1608,11 +1494,9 @@
     }
    ],
    "kontakt": "Christoffer Gillström, Skogsstyrelsen, 010-172 12 07 · christoffer.gillstrom@skogsstyrelsen.se",
+   "kortnamn": "Anslag från Rundvirkesstiftelsen",
    "krav_checklista": [],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "skog"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
@@ -1649,11 +1533,9 @@
     }
    ],
    "kontakt": "Länsstyrelsen Västernorrland",
+   "kortnamn": "Investeringsstöd för diversifiering till annat än jordbruk",
    "krav_checklista": [],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "besoksnaring"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
@@ -1690,12 +1572,9 @@
     }
    ],
    "kontakt": "Jordbruksverket",
+   "kortnamn": "Investeringsstöd för fritids- och idrottsanläggningar",
    "krav_checklista": [],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "anlaggning",
-    "bystugan"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
@@ -1732,11 +1611,9 @@
     }
    ],
    "kontakt": "Jordbruksverket",
+   "kortnamn": "Investeringsstöd för hembygdsgårdar",
    "krav_checklista": [],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "bystugan"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
@@ -1773,13 +1650,9 @@
     }
    ],
    "kontakt": "Jordbruksverket",
+   "kortnamn": "Investeringsstöd för infrastruktur för rekreation och turism",
    "krav_checklista": [],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "leder",
-    "friluftsliv",
-    "besoksnaring"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
@@ -1817,13 +1690,9 @@
     }
    ],
    "kontakt": "Ånge kommun och Länsstyrelsen Västernorrland",
+   "kortnamn": "LONA — lokala naturvårdssatsningen",
    "krav_checklista": [],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "leder",
-    "friluftsliv",
-    "badplats"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": true,
@@ -1860,12 +1729,9 @@
     }
    ],
    "kontakt": "Energimyndigheten",
+   "kortnamn": "Solcellsstöd och energieffektiviseringsstöd",
    "krav_checklista": [],
    "lopande_ansokan": false,
-   "matchade_behov": [
-    "solceller",
-    "energi"
-   ],
    "medfinansiering": {
     "ideell_tid_racknas": "okant",
     "kommun_kravs": false,
@@ -1888,6 +1754,7 @@
    "bidrag_id": "leader-mittland-plus",
    "datum": "2026-08-06",
    "finansiar": "Leader Mittland Plus (Jordbruksverket och europeiska strukturfonderna)",
+   "kortnamn": "Leader",
    "namn": "Projektstöd genom Leader Mittland Plus",
    "notering": "PASSERAT. Sista dag till septembermötet 3/9 — datumkonflikten med 17/8 är löst skriftligt: 6/8 är det enda datum som stämmer med fyraveckorsregeln, och den posten är nyast (publicerad 2026-06-12).",
    "typ": "stanger"
@@ -1896,6 +1763,7 @@
    "bidrag_id": "tillvaxtverket-eruf",
    "datum": "2026-08-20",
    "finansiar": "Tillväxtverket",
+   "kortnamn": "ERUF",
    "namn": "ERUF Mellersta Norrland",
    "notering": "Höstutlysning utan besöksnäringsmål (mål 1.1, 1.3–1.5, 1.7, 2.2, 2.6) — bevaka, sök inte. Info om 2027 kommer under hösten 2026.",
    "typ": "oppnar"
@@ -1904,6 +1772,7 @@
    "bidrag_id": "klimatklivet",
    "datum": "2026-08-24",
    "finansiar": "Naturvårdsverket",
+   "kortnamn": "Klimatklivet",
    "namn": "Klimatklivet",
    "notering": "Ordinarie omgång. Publik laddinfrastruktur ingår INTE. Här ryms \"byte till fossilfri el och värme\".",
    "typ": "oppnar"
@@ -1912,6 +1781,7 @@
    "bidrag_id": "ange-riktat-bidrag",
    "datum": "2026-08-25",
    "finansiar": "Ånge kommun",
+   "kortnamn": "Ånge riktat",
    "namn": "Riktat bidrag till föreningar",
    "notering": "Andra av två omgångar. Den första var 1 december.",
    "typ": "stanger"
@@ -1920,6 +1790,7 @@
    "bidrag_id": "nokas",
    "datum": "2026-08-31",
    "finansiar": "Skogsstyrelsen",
+   "kortnamn": "Nokås",
    "namn": "Nokås — natur- och kulturmiljövårdsåtgärder i skogen",
    "notering": "Nio åtgärder slutar prioriteras 1 september 2026 och måste sökas senast 31 augusti. Två av dem är föreningens: \"friluftsanordningar\" samt \"stigar och vandringsleder\".",
    "typ": "stanger"
@@ -1928,6 +1799,7 @@
    "bidrag_id": "klimatklivet",
    "datum": "2026-09-04",
    "finansiar": "Naturvårdsverket",
+   "kortnamn": "Klimatklivet",
    "namn": "Klimatklivet",
    "notering": "Ordinarie omgång. Publik laddinfrastruktur ingår INTE. Här ryms \"byte till fossilfri el och värme\".",
    "typ": "stanger"
@@ -1936,6 +1808,7 @@
    "bidrag_id": "bygdemedel-vasternorrland",
    "datum": "2026-09-15",
    "finansiar": "Länsstyrelsen Västernorrland",
+   "kortnamn": "Bygdemedel",
    "namn": "Bygdemedel",
    "notering": "Höstomgången. Två omgångar per år: 15 februari och 15 september. Ånge kommun är remissinstans; KSAU prioriterar i mars och september.",
    "typ": "stanger"
@@ -1944,6 +1817,7 @@
    "bidrag_id": "leader-mittland-plus",
    "datum": "2026-09-15",
    "finansiar": "Leader Mittland Plus (Jordbruksverket och europeiska strukturfonderna)",
+   "kortnamn": "Leader",
    "namn": "Projektstöd genom Leader Mittland Plus",
    "notering": "Sista ansökningsdag till oktobermötet, beslut 13 oktober. Därefter 3–5 månaders handläggning hos Jordbruksverket — formellt beslut tidigast vintern 2026/27.",
    "typ": "stanger"
@@ -1952,6 +1826,7 @@
    "bidrag_id": "region-vn-kulturstod",
    "datum": "2026-09-20",
    "finansiar": "Region Västernorrland",
+   "kortnamn": "RVN kultur",
    "namn": "Projektstöd inom kulturområdet",
    "notering": "Tredje av tre omgångar 2026. De tidigare var 20 januari och 20 april.",
    "typ": "stanger"
@@ -1960,6 +1835,7 @@
    "bidrag_id": "tillvaxtverket-eruf",
    "datum": "2026-09-20",
    "finansiar": "Tillväxtverket",
+   "kortnamn": "ERUF",
    "namn": "ERUF Mellersta Norrland",
    "notering": "Höstutlysning utan besöksnäringsmål (mål 1.1, 1.3–1.5, 1.7, 2.2, 2.6) — bevaka, sök inte. Info om 2027 kommer under hösten 2026.",
    "typ": "stanger"
@@ -1968,6 +1844,7 @@
    "bidrag_id": "klimatklivet",
    "datum": "2026-10-19",
    "finansiar": "Naturvårdsverket",
+   "kortnamn": "Klimatklivet",
    "namn": "Klimatklivet",
    "notering": "Publik laddinfrastruktur, anbudsförfarande.",
    "typ": "oppnar"
@@ -1976,6 +1853,7 @@
    "bidrag_id": "klimatklivet",
    "datum": "2026-11-06",
    "finansiar": "Naturvårdsverket",
+   "kortnamn": "Klimatklivet",
    "namn": "Klimatklivet",
    "notering": "Publik laddinfrastruktur, anbudsförfarande.",
    "typ": "stanger"
@@ -1984,6 +1862,7 @@
    "bidrag_id": "ange-anlaggningsbidrag",
    "datum": "2026-12-01",
    "finansiar": "Ånge kommun",
+   "kortnamn": "Ånge anläggning",
    "namn": "Anläggningsbidrag kategori A — föreningsägd anläggning",
    "notering": null,
    "typ": "stanger"
@@ -1992,6 +1871,7 @@
    "bidrag_id": "ange-riktat-bidrag",
    "datum": "2026-12-01",
    "finansiar": "Ånge kommun",
+   "kortnamn": "Ånge riktat",
    "namn": "Riktat bidrag till föreningar",
    "notering": "Avser kommande år.",
    "typ": "stanger"
@@ -2000,6 +1880,7 @@
    "bidrag_id": "ange-samlingslokal-drift",
    "datum": "2026-12-01",
    "finansiar": "Ånge kommun",
+   "kortnamn": "Ånge samlingslokal",
    "namn": "Drift- och underhållsbidrag till samlingslokal",
    "notering": null,
    "typ": "stanger"
@@ -2008,6 +1889,7 @@
    "bidrag_id": "boverket-samlingslokaler",
    "datum": "2026-12-01",
    "finansiar": "Boverket",
+   "kortnamn": "Boverket",
    "namn": "Investeringsbidrag till allmänna samlingslokaler",
    "notering": "Avser nästkommande års medel. Beslut meddelas senast 31 maj.",
    "typ": "stanger"
@@ -2016,6 +1898,7 @@
    "bidrag_id": "lst-vn-kulturmiljovard",
    "datum": "2026-12-31",
    "finansiar": "Länsstyrelsen Västernorrland",
+   "kortnamn": "Kulturmiljövård",
    "namn": "Bidrag till kulturhistoriska miljöer",
    "notering": "Deadline 31 december året innan arbetet utförs; beslut normalt före 1 juni.",
    "typ": "stanger"
@@ -2024,6 +1907,7 @@
    "bidrag_id": "bjornberget-bygdemedel",
    "datum": "2027-06-01",
    "finansiar": "Björnberget Vindkraft AB",
+   "kortnamn": "Björnberget",
    "namn": "Bygdemedel för Björnberget",
    "notering": "Ansökningsperiod 1–30 juni årligen, beslut senast 31 juli. 2026 års fönster är passerat — nästa chans är juni 2027.",
    "typ": "oppnar"
@@ -2032,6 +1916,7 @@
    "bidrag_id": "bjornberget-bygdemedel",
    "datum": "2027-06-30",
    "finansiar": "Björnberget Vindkraft AB",
+   "kortnamn": "Björnberget",
    "namn": "Bygdemedel för Björnberget",
    "notering": "Ansökningsperiod 1–30 juni årligen, beslut senast 31 juli. 2026 års fönster är passerat — nästa chans är juni 2027.",
    "typ": "stanger"
@@ -2041,161 +1926,193 @@
   {
    "bidrag_id": "bygdemedel-vasternorrland",
    "fraga": "Fäller affärsverksamhetsspärren en gratis och öppen badplats/brygga/ramp på mark där campingen tar betalt — och räddas den av avgiftsfrihet, fysisk avgränsning eller proportionering?",
+   "kortnamn": "Bygdemedel",
    "namn": "Bygdemedel"
   },
   {
    "bidrag_id": "bygdemedel-vasternorrland",
    "fraga": "Räknas ideellt arbete som stödberättigad kostnad eller medfinansiering i Västernorrland, och till vilket timbelopp?",
+   "kortnamn": "Bygdemedel",
    "namn": "Bygdemedel"
   },
   {
    "bidrag_id": "bygdemedel-vasternorrland",
    "fraga": "Finns högsta stödandel eller takbelopp per ansökan, och hur stor är Ånge kommuns ram i höstomgången 2026?",
+   "kortnamn": "Bygdemedel",
    "namn": "Bygdemedel"
   },
   {
    "bidrag_id": "bygdemedel-vasternorrland",
    "fraga": "Begär ut \"Handbok för hantering av bygdeavgiftsmedel\" och beslutslistan för länets senaste två omgångar som allmänna handlingar.",
+   "kortnamn": "Bygdemedel",
    "namn": "Bygdemedel"
   },
   {
    "bidrag_id": "bygdemedel-vasternorrland",
    "fraga": "Begär Ånge kommuns \"Riktlinjer för bygdeavgiftsmedel\" (0690-25 01 00) — länken på kommunens sida är trasig.",
+   "kortnamn": "Bygdemedel",
    "namn": "Bygdemedel"
   },
   {
    "bidrag_id": "arvsfonden-lokalstod",
    "fraga": "Har föreningen momsavdragsrätt för byggkostnaderna — och tvingar det fram ansökan exklusive moms med 8 mkr som tak? (Arvsfonden hänvisar till Skatteverket.)",
+   "kortnamn": "Arvsfonden lokalstöd",
    "namn": "Lokalstöd"
   },
   {
    "bidrag_id": "arvsfonden-lokalstod",
    "fraga": "Räknas en ny byggnad på campingens mark som något som \"skiljer sig från ordinarie verksamhet\" när föreningen redan driver camping på platsen?",
+   "kortnamn": "Arvsfonden lokalstöd",
    "namn": "Lokalstöd"
   },
   {
    "bidrag_id": "arvsfonden-lokalstod",
    "fraga": "Hur förhåller sig kravet på \"ensam rätt att använda anläggningen\" till att campingens betalande gäster skulle nyttja samma anläggning?",
+   "kortnamn": "Arvsfonden lokalstöd",
    "namn": "Lokalstöd"
   },
   {
    "bidrag_id": "nokas",
    "fraga": "Är 31 augusti formell sista ansökningsdag eller bara sista dag med prioritet — avvisas eller prövas en ansökan som kommer in 1 september?",
+   "kortnamn": "Nokås",
    "namn": "Nokås — natur- och kulturmiljövårdsåtgärder i skogen"
   },
   {
    "bidrag_id": "nokas",
    "fraga": "Gäller fast ersättning 10 kr/m vid \"högst 5 km\" eller \"under 5 km\", och får en längre led i stället 70 % av faktisk kostnad utan beloppstak?",
+   "kortnamn": "Nokås",
    "namn": "Nokås — natur- och kulturmiljövårdsåtgärder i skogen"
   },
   {
    "bidrag_id": "nokas",
    "fraga": "Hur ska ideellt arbete styrkas vid ansökan om utbetalning — tidrapporter, styrelseprotokoll eller medlemsförteckning?",
+   "kortnamn": "Nokås",
    "namn": "Nokås — natur- och kulturmiljövårdsåtgärder i skogen"
   },
   {
    "bidrag_id": "nokas",
    "fraga": "Får momsen räknas in i godkänd kostnad när föreningen driver momspliktig camping men leden används gratis av allmänheten (blandad avdragsrätt)?",
+   "kortnamn": "Nokås",
    "namn": "Nokås — natur- och kulturmiljövårdsåtgärder i skogen"
   },
   {
    "bidrag_id": "nokas",
    "fraga": "Påverkar närheten till en kommersiell camping bedömningen, eller räcker det att led och anordningar är tillgängliga för allmänheten?",
+   "kortnamn": "Nokås",
    "namn": "Nokås — natur- och kulturmiljövårdsåtgärder i skogen"
   },
   {
    "bidrag_id": "leader-mittland-plus",
    "fraga": "Finns 30-procentskravet på privata/ideella resurser kvar i perioden 2023–2027, eller föll det med den gamla strategin?",
+   "kortnamn": "Leader",
    "namn": "Projektstöd genom Leader Mittland Plus"
   },
   {
    "bidrag_id": "leader-mittland-plus",
    "fraga": "Bedöms föreningens projekt som allmännyttigt (40–100 %, inget tak) eller kommersiellt gynnande (40–70 %, tak 300 000 kr) — och kan badplats/ramp/lekpark/leder brytas ut och bedömas för sig?",
+   "kortnamn": "Leader",
    "namn": "Projektstöd genom Leader Mittland Plus"
   },
   {
    "bidrag_id": "leader-mittland-plus",
    "fraga": "Kan en ideell förening ta upp medlemmars arbete som \"eget arbete\" à 340 kr/tim SOM BUDGETPOST, eller är föreningsarbete alltid ideella resurser utanför budgeten?",
+   "kortnamn": "Leader",
    "namn": "Projektstöd genom Leader Mittland Plus"
   },
   {
    "bidrag_id": "leader-mittland-plus",
    "fraga": "Hur mycket de minimis-utrymme har föreningen kvar efter det tidigare Leader-projektet?",
+   "kortnamn": "Leader",
    "namn": "Projektstöd genom Leader Mittland Plus"
   },
   {
    "bidrag_id": "swedbank-agarstiftelse-norrland",
    "fraga": "Ryms ett allmännyttigt anläggningsprojekt (badplats, lekpark, led) i ändamålen?",
+   "kortnamn": "Swedbank Norrland",
    "namn": "Bidrag från Swedbanks Ägarstiftelse Norrland"
   },
   {
    "bidrag_id": "ange-samlingslokal-drift",
    "fraga": "Ingår Alby i de orter som godkändes i Samlingslokalsutredningen 2005-08-25 HN § 116? Ortlistan finns inte publicerad någonstans.",
+   "kortnamn": "Ånge samlingslokal",
    "namn": "Drift- och underhållsbidrag till samlingslokal"
   },
   {
    "bidrag_id": "klimatklivet",
    "fraga": "Får solceller (elproduktion) stöd genom Klimatklivet eller inte? Andrahandsuppgift säger nej — avgör innan solcellsspåret planeras.",
+   "kortnamn": "Klimatklivet",
    "namn": "Klimatklivet"
   },
   {
    "bidrag_id": "klimatklivet",
    "fraga": "Hur mycket de minimis-utrymme har föreningen kvar, och vad väger tyngst i anbudsrangordningens \"klimatnytta per investerad krona\"?",
+   "kortnamn": "Klimatklivet",
    "namn": "Klimatklivet"
   },
   {
    "bidrag_id": "region-vn-projektstod-tillvaxt",
    "fraga": "Finns ett minsta stödbelopp/projektstorlek, eller är beslutsnivåerna enda gränsen?",
+   "kortnamn": "RVN tillväxt",
    "namn": "Projektstöd tillväxt"
   },
   {
    "bidrag_id": "ange-riktat-bidrag",
    "fraga": "Vilket nummer gäller för bidragsfrågor till Therese Didrick — växeln 0690-25 01 00 eller direktnumret 0690-25 02 28? Kommunens egna sidor motsäger varandra.",
+   "kortnamn": "Ånge riktat",
    "namn": "Riktat bidrag till föreningar"
   },
   {
    "bidrag_id": "boverket-samlingslokaler",
    "fraga": "Kan en förening vars huvudsakliga verksamhet är camping uppfylla 5 §:s huvudsaklighetskrav — bedöms det på omsättning, yta, tid eller stadgarnas ändamål? (Avgörande för hela spåret.)",
+   "kortnamn": "Boverket",
    "namn": "Investeringsbidrag till allmänna samlingslokaler"
   },
   {
    "bidrag_id": "boverket-samlingslokaler",
    "fraga": "Hur prövas statsstödsspärren i 1 § när sökanden driver ekonomisk verksamhet på samma fastighet som samlingslokalen?",
+   "kortnamn": "Boverket",
    "namn": "Investeringsbidrag till allmänna samlingslokaler"
   },
   {
    "bidrag_id": "boverket-samlingslokaler",
    "fraga": "Räknas ideellt arbete i föreningens 20-procentsandel, och till vilket timpris? (Bygdegårdarna säger 220 kr/tim — Boverket har inte bekräftat.)",
+   "kortnamn": "Boverket",
    "namn": "Investeringsbidrag till allmänna samlingslokaler"
   },
   {
    "bidrag_id": "boverket-samlingslokaler",
    "fraga": "Är Ånge kommun beredd på 30-procentsbeslutet, och vilket är kommunens interna sista datum för att hinna före 1 december?",
+   "kortnamn": "Boverket",
    "namn": "Investeringsbidrag till allmänna samlingslokaler"
   },
   {
    "bidrag_id": "region-vn-kulturstod",
    "fraga": "Räknas friluftslivs-/campingnära kulturprogram som \"kultur\" i stödets mening, eller är målgruppen i praktiken konst- och kulturinstitutioner?",
+   "kortnamn": "RVN kultur",
    "namn": "Projektstöd inom kulturområdet"
   },
   {
    "bidrag_id": "energimyndigheten-smf-energi",
    "fraga": "Räknas en ideell förening med ekonomisk verksamhet (camping) som sökbehörigt SMF, och när öppnar nästa ansökningsperiod?",
+   "kortnamn": "SMF-energi",
    "namn": "Investeringsstöd till små och medelstora företag för effektivare energianvändning"
   },
   {
    "bidrag_id": "bygdegardarna-medlemskap",
    "fraga": "Är larmbidraget (50 % brand-/inbrottslarm) helt avslutat sedan 2026-01-01, eller finns en efterföljare utöver vattenfelsbrytarbidraget?",
+   "kortnamn": "Bygdegårdarna",
    "namn": "Medlemskap i Bygdegårdarnas Riksförbund"
   },
   {
    "bidrag_id": "tillvaxtverket-eruf",
    "fraga": "Har någon enskild liten ideell förening varit direkt stödmottagare i Mellersta Norrland-programmet, eller bara projektpartner?",
+   "kortnamn": "ERUF",
    "namn": "ERUF Mellersta Norrland"
   },
   {
    "bidrag_id": "hela-sverige-ska-leva",
    "fraga": "Har länsavdelningen Västernorrland ett stimulansbidrag likt Fyrbodals — med vilken totalpott, deadline och ansökningsprocess?",
+   "kortnamn": "HSSL Västernorrland",
    "namn": "Stimulansbidrag, länsavdelningen Västernorrland"
   }
  ],
@@ -2205,5 +2122,19 @@
   "bevakas": 7
  },
  "senaste_hamtning": "2026-08-08",
+ "statusordning": [
+  {
+   "rubrik": "Aktuella spår",
+   "status": "aktuell"
+  },
+  {
+   "rubrik": "Bevakas",
+   "status": "bevakas"
+  },
+  {
+   "rubrik": "Avfärdade — med motivering, så att de inte återforskas",
+   "status": "avfardad"
+  }
+ ],
  "titel": "Bidragsläget — Ånge Camping ideell förening"
 }
