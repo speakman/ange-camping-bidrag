@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Bidragsläget · Ånge Camping</title>
+<style>
+/* ============================================================
+   Bidragsläget — Ånge Camping ideell förening
+   Fältguide-estetik: papper, bläck, stämplar. Paletten är
+   varumärkets (brand/tokens.json), inlinad — sidan gör inga
+   externa anrop utom fetch('data.json').
+   ============================================================ */
+:root{
+  --paper:#FFFBF1; --cream:#F6EDD6; --cream-paper:#FBF5E4;
+  --ink:#0e1e30; --ink-muted:#405a72; --rule:#D9C896;
+  --navy:#1C3D5A; --navy-ink:#14304a; --navy-deep:#0f2438;
+  --forest:#2D7A3E; --forest-deep:#1f5a2d; --moss:#8FAE3B;
+  --sun:#F08A3E; --sun-deep:#E86B3A; --sun-ink:#B4471C;
+  --sand:#E8D170; --lake:#2E7FB0; --lake-deep:#1F5E85;
+  --sky:#BEDDF1;
+  --bg:var(--paper); --bg-card:var(--cream-paper); --fg:var(--ink);
+  --fg-muted:var(--ink-muted); --accent:var(--sun-ink);
+  --mark:var(--navy); --chip-border:var(--rule);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:var(--navy-deep); --bg-card:#14304a; --fg:#F2E9D5;
+    --fg-muted:#a9c0d4; --rule:#3d5a75; --chip-border:#3d5a75;
+    --accent:var(--sun); --mark:var(--sky);
+    --forest:#7fbc8e; --forest-deep:#8FAE3B; --lake:#7FB8DE;
+    --sun-ink:#F08A3E; --navy-ink:#cfe1ee;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+  font-size:17px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+/* Pappersgrain — data-URI, ingen extern resurs */
+body::after{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:9999;
+  opacity:.05; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='0.55'/></svg>");
+}
+@media (prefers-color-scheme: dark){ body::after{ mix-blend-mode:screen; opacity:.035 } }
+
+.wrap{max-width:62rem; margin:0 auto; padding:0 1.1rem}
+a{color:var(--lake-deep)}
+@media (prefers-color-scheme: dark){ a{color:var(--lake)} }
+
+/* ---------- typografi ---------- */
+h1,h2,h3{font-weight:600; letter-spacing:.01em; line-height:1.15}
+h1{font-size:clamp(2.1rem,6vw,3.4rem); margin:.2rem 0 .6rem}
+h2{font-size:clamp(1.4rem,3.5vw,1.9rem); margin:2.8rem 0 .9rem; border-bottom:3px double var(--rule); padding-bottom:.35rem}
+h3{font-size:1.12rem; margin:1.6rem 0 .5rem}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.overline{
+  font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.72rem;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--fg-muted);
+}
+.lede{font-size:1.08rem; max-width:44rem; color:var(--fg)}
+.muted{color:var(--fg-muted)}
+.small{font-size:.86rem}
+
+/* ---------- header ---------- */
+header.site{
+  padding:2.6rem 0 1.6rem; border-bottom:2px solid var(--navy);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--sky) 26%, var(--bg)) 0%, var(--bg) 78%);
+}
+@media (prefers-color-scheme: dark){
+  header.site{background:linear-gradient(180deg,#16344f 0%, var(--bg) 80%)}
+}
+.stamp{
+  display:inline-block; margin-top:1rem; padding:.35rem .7rem;
+  border:2px solid var(--accent); color:var(--accent); border-radius:3px;
+  font-family:ui-monospace,Menlo,monospace; font-size:.74rem;
+  letter-spacing:.14em; text-transform:uppercase; transform:rotate(-1.2deg);
+}
+
+/* ---------- nyckeltal ---------- */
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr)); gap:.8rem; margin:1.4rem 0}
+.tile{
+  background:var(--bg-card); border:1px solid var(--rule); border-radius:6px;
+  padding:.9rem 1rem .8rem; position:relative;
+}
+.tile .n{font-family:ui-monospace,Menlo,monospace; font-size:2rem; line-height:1; color:var(--navy-ink)}
+@media (prefers-color-scheme: dark){ .tile .n{color:var(--sky)} }
+.tile .l{font-size:.8rem; color:var(--fg-muted); margin-top:.3rem; letter-spacing:.04em; text-transform:uppercase}
+.tile.hot{border-color:var(--accent)}
+.tile.hot .n{color:var(--accent)}
+
+/* ---------- kort ---------- */
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(15.5rem,1fr)); gap:.9rem; margin:1rem 0}
+.card{
+  background:var(--bg-card); border:1px solid var(--rule); border-left:4px solid var(--navy);
+  border-radius:6px; padding:.95rem 1.05rem;
+}
+.card h3{margin:.1rem 0 .35rem; font-size:1.05rem}
+.card .deadline{font-family:ui-monospace,Menlo,monospace; font-size:.86rem}
+.card .cd{color:var(--accent); font-weight:600}
+.card p{margin:.5rem 0 0; font-size:.9rem; color:var(--fg-muted)}
+
+/* ---------- chips/badges ---------- */
+.chip{
+  display:inline-block; padding:.08rem .5rem; margin:0 .25rem .25rem 0;
+  border:1.5px solid var(--chip-border); border-radius:3px;
+  font-family:ui-monospace,Menlo,monospace; font-size:.68rem;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--fg-muted);
+  vertical-align:middle; white-space:nowrap;
+}
+.chip.aktuell{border-color:var(--forest); color:var(--forest)}
+.chip.bevakas{border-color:var(--lake); color:var(--lake)}
+.chip.avfardad{border-color:var(--fg-muted); color:var(--fg-muted); opacity:.85}
+.chip.hog{border-color:var(--forest); color:var(--forest); font-weight:700}
+.chip.medel{border-color:var(--sand); color:color-mix(in srgb, var(--sand) 40%, var(--fg))}
+.chip.lag{opacity:.8}
+.chip.k-kalla{border-color:var(--forest); color:var(--forest)}
+.chip.k-soktraff{border-color:var(--lake); color:var(--lake)}
+.chip.k-gemini{border-color:var(--sand); color:color-mix(in srgb, var(--sand) 35%, var(--fg))}
+.chip.k-ej_bekraftat{border-color:var(--accent); color:var(--accent); font-weight:700}
+
+/* ---------- tidslinje ---------- */
+.tl-scroll{overflow-x:auto; border:1px solid var(--rule); border-radius:6px; background:var(--bg-card); padding:.4rem .2rem}
+.tl-scroll svg{display:block; min-width:760px; width:100%; height:auto}
+.tl-event{cursor:pointer}
+.tl-event:focus{outline:2px dashed var(--accent); outline-offset:3px}
+#tooltip{
+  position:fixed; z-index:50; max-width:22rem; display:none;
+  background:var(--navy-deep); color:#F2E9D5; border:1px solid var(--sky);
+  border-radius:5px; padding:.55rem .75rem; font-size:.84rem; line-height:1.4;
+  pointer-events:none; box-shadow:0 4px 18px rgba(0,0,0,.35);
+}
+#tooltip .t-datum{font-family:ui-monospace,Menlo,monospace; color:var(--sand); font-size:.76rem}
+.legend{display:flex; flex-wrap:wrap; gap:1rem; margin:.5rem 0 0; font-size:.8rem; color:var(--fg-muted); align-items:center}
+.legend .sw{display:inline-block; width:.75rem; height:.75rem; border-radius:50%; vertical-align:-.08rem; margin-right:.35rem}
+
+/* ---------- tabeller ---------- */
+.tbl-scroll{overflow-x:auto; border:1px solid var(--rule); border-radius:6px}
+table{border-collapse:collapse; width:100%; font-size:.88rem; background:var(--bg-card)}
+th,td{padding:.5rem .65rem; text-align:left; border-bottom:1px solid var(--rule); vertical-align:top}
+th{
+  font-family:ui-monospace,Menlo,monospace; font-size:.68rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--fg-muted); border-bottom:2px solid var(--navy);
+  white-space:nowrap;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num{font-family:ui-monospace,Menlo,monospace; white-space:nowrap}
+
+/* ---------- katalog ---------- */
+details.post{
+  background:var(--bg-card); border:1px solid var(--rule); border-radius:6px;
+  margin:.55rem 0; overflow:hidden;
+}
+details.post>summary{
+  list-style:none; cursor:pointer; padding:.75rem 1rem;
+  display:flex; flex-wrap:wrap; gap:.35rem .6rem; align-items:baseline;
+}
+details.post>summary::-webkit-details-marker{display:none}
+details.post>summary::before{
+  content:"❧"; color:var(--accent); margin-right:.15rem;
+  display:inline-block; transition:transform .15s ease;
+}
+details.post[open]>summary::before{transform:rotate(90deg)}
+details.post>summary .namn{font-weight:600; font-size:1.02rem}
+details.post>summary .fin{color:var(--fg-muted); font-size:.85rem}
+details.post .body{padding:.2rem 1.05rem 1rem; border-top:1px dashed var(--rule)}
+details.post dl{display:grid; grid-template-columns:max-content 1fr; gap:.25rem .9rem; margin:.7rem 0; font-size:.9rem}
+details.post dt{font-family:ui-monospace,Menlo,monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--fg-muted); padding-top:.15rem}
+details.post dd{margin:0}
+details.post ul{margin:.3rem 0 .6rem; padding-left:1.15rem; font-size:.9rem}
+details.post li{margin:.25rem 0}
+.kallista{font-size:.82rem; word-break:break-all}
+.avsnitt-avfardade>details.post{opacity:.85}
+blockquote.motiv{
+  margin:.5rem 0; padding:.4rem .9rem; border-left:3px solid var(--rule);
+  color:var(--fg-muted); font-size:.92rem; font-style:italic;
+}
+
+/* ---------- frågelåda ---------- */
+.fragor{background:var(--bg-card); border:1px dashed var(--accent); border-radius:6px; padding:.2rem 1rem .4rem; margin:1rem 0}
+.fragor summary{cursor:pointer; padding:.6rem 0; font-weight:600}
+.fragor li{margin:.4rem 0; font-size:.9rem}
+.fragor .vem{font-family:ui-monospace,Menlo,monospace; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--accent)}
+
+footer.site{
+  margin-top:3.5rem; padding:1.6rem 0 2.4rem; border-top:2px solid var(--navy);
+  font-size:.85rem; color:var(--fg-muted);
+}
+@media print{
+  body::after{display:none}
+  details.post{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="overline">Ånge Camping · ideell förening · Västernorrland</div>
+    <h1>Bidragsläget</h1>
+    <p class="lede">Föreningens karta över bidrag som går att söka — vad de ger,
+    vad de kräver, när de stänger och vad som fortfarande är obesvarat.
+    Allt på sidan genereras ur föreningens bidragsdatabas, där varje uppgift
+    bär källa, hämtdatum och konfidens.</p>
+    <div class="stamp" id="stamp">läser in …</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ NIVÅ 1: LÄGET I KORTHET ============ -->
+  <section id="laget" aria-labelledby="h-laget">
+    <h2 id="h-laget">Läget i korthet</h2>
+    <div class="tiles" id="tiles"></div>
+
+    <h3>Fyra förberedda ansökningar</h3>
+    <div class="cards" id="ansokningar"></div>
+
+    <details class="fragor" id="fragor-box">
+      <summary>Obesvarade frågor — det som bara ett telefonsamtal kan avgöra
+        (<span id="fragor-antal">0</span>)</summary>
+      <ul id="fragor"></ul>
+    </details>
+  </section>
+
+  <!-- ============ NIVÅ 2: KALENDERN & TOPPLISTAN ============ -->
+  <section id="kalendern" aria-labelledby="h-kal">
+    <h2 id="h-kal">Kalendern</h2>
+    <p class="muted small">Fönster som stänger (fyllda) och öppnar (ihåliga).
+    Dagens datum markeras med den orange linjen. Rulla i sidled på liten skärm.</p>
+    <div class="tl-scroll" id="tidslinje"></div>
+    <div class="legend">
+      <span><span class="sw" style="background:var(--mark)"></span>fönster stänger</span>
+      <span><span class="sw" style="background:transparent;border:2px solid var(--mark)"></span>fönster öppnar</span>
+      <span><span class="sw" style="background:var(--accent); border-radius:0; width:.2rem"></span>idag</span>
+    </div>
+    <div id="senare"></div>
+    <details style="margin-top:.8rem">
+      <summary class="small muted" style="cursor:pointer">Kalendern som lista</summary>
+      <div class="tbl-scroll" style="margin-top:.5rem">
+        <table id="kalenderlista">
+          <thead><tr><th>Datum</th><th>Händelse</th><th>Bidrag</th><th>Notering</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </details>
+
+    <h3 id="h-topp">Topplistan — levande spår efter relevans</h3>
+    <div class="tbl-scroll">
+      <table id="topplista">
+        <thead><tr><th>Bidrag</th><th>Finansiär</th><th>Relevans</th><th>Sida</th><th>Stödandel</th><th>Utbetalning</th><th>Nästa datum</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ NIVÅ 3: HELA KATALOGEN ============ -->
+  <section id="katalogen" aria-labelledby="h-kat">
+    <h2 id="h-kat">Hela katalogen</h2>
+    <p class="muted small">Varje kort visar allt databasen vet: motivering, krav,
+    spärrar, belopp och källor. Konfidensmärkena betyder:
+    <span class="chip k-kalla">källa</span> läst på finansiärens egen sida ·
+    <span class="chip k-soktraff">sökträff</span> sökmotor eller tredjepartskälla ·
+    <span class="chip k-gemini">gemini</span> AI-grounding där sajten blockerar hämtning ·
+    <span class="chip k-ej_bekraftat">ej bekräftat</span> får inte användas i en
+    ansökan utan kontroll först. Det databasen inte vet skrivs
+    <em>ej utrett</em> — sidan gissar aldrig.</p>
+
+    <h3>Aktuella spår</h3>
+    <div id="kat-aktuell"></div>
+    <h3>Bevakas</h3>
+    <div id="kat-bevakas"></div>
+    <h3>Avfärdade — med motivering, så att de inte återforskas</h3>
+    <div id="kat-avfardad" class="avsnitt-avfardade"></div>
+  </section>
+
+</main>
+
+<div id="tooltip" role="status"></div>
+
+<footer class="site">
+  <div class="wrap">
+    <p>Genererad ur föreningens bidragsdatabas · senaste källhämtning
+    <span class="mono" id="f-hamtning">–</span> · databasen uppdaterad
+    <span class="mono" id="f-uppdaterad">–</span>.</p>
+    <p>Sidan är statisk och byggs om ur databasen vid varje ändring —
+    <a href="https://github.com/speakman/ange-camping-bidrag">källkod och data</a>.
+    Uppgifter märkta <span class="chip k-ej_bekraftat">ej bekräftat</span> får
+    inte användas i en ansökan utan kontroll.</p>
+  </div>
+</footer>
+
+<script>
+"use strict";
+
+/* ---------- hjälpare ---------- */
+const $ = (s) => document.querySelector(s);
+const esc = (t) => String(t ?? "").replace(/[&<>"']/g,
+  (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const kr = new Intl.NumberFormat("sv-SE");
+const fmtKr = (n) => n == null ? null : kr.format(n) + " kr";
+
+const ORD = {
+  status:{aktuell:"Aktuellt", bevakas:"Bevakas", avfardad:"Avfärdat"},
+  sida:{allmannyttig:"Allmännyttig", ekonomisk:"Ekonomisk", bada:"Båda sidor"},
+  utbetalning:{efterskott:"Efterskott", forskott:"Förskott", blandat:"Blandat", okant:"Ej utrett"},
+  statsstod:{de_minimis:"De minimis", ej_tillampligt:"Ej tillämpligt", okant:"Ej utrett"},
+  relevans:{hog:"Hög", medel:"Medel", lag:"Låg"},
+  janej:{ja:"Ja", nej:"Nej", okant:"Ej utrett"},
+  konfidens:{kalla:"källa", soktraff:"sökträff", gemini:"gemini", ej_bekraftat:"ej bekräftat"},
+  typ:{stanger:"stänger", oppnar:"öppnar"},
+};
+const KORTNAMN = {
+  nokas:"Nokås", "leader-mittland-plus":"Leader", "bygdemedel-vasternorrland":"Bygdemedel",
+  "arvsfonden-lokalstod":"Arvsfonden lokalstöd", "arvsfonden-projektstod":"Arvsfonden projektstöd",
+  "boverket-samlingslokaler":"Boverket", "ange-riktat-bidrag":"Ånge riktat",
+  "ange-anlaggningsbidrag":"Ånge anläggning", "ange-samlingslokal-drift":"Ånge samlingslokal",
+  "region-vn-projektstod-tillvaxt":"RVN tillväxt", "region-vn-kulturstod":"RVN kultur",
+  klimatklivet:"Klimatklivet", "tillvaxtverket-eruf":"ERUF",
+  "swedbank-agarstiftelse-norrland":"Swedbank Norrland", "hela-sverige-ska-leva":"HSSL VN",
+  "bygdegardarna-medlemskap":"Bygdegårdarna", "postkodlotteriets-stiftelse":"Postkod",
+  "bjornberget-bygdemedel":"Björnberget", "lst-vn-kulturmiljovard":"Kulturmiljövård",
+  "skandia-ideer-for-livet":"Idéer för livet", "energimyndigheten-smf-energi":"SMF-energi",
+  "interreg-sverige-norge":"Interreg",
+};
+const kortnamn = (p) => KORTNAMN[p.bidrag_id || p.id] ||
+  String((p.namn || p.bidrag_id || "")).slice(0, 18);
+
+/* Nedräkning körs i besökarens webbläsare — filen i repot är deterministisk. */
+function dagarKvar(datum){
+  const idag = new Date(); idag.setHours(0,0,0,0);
+  return Math.round((new Date(datum + "T00:00:00") - idag) / 86400000);
+}
+function dagarText(datum){
+  const d = dagarKvar(datum);
+  if (d < 0)  return "passerat";
+  if (d === 0) return "IDAG";
+  if (d === 1) return "i morgon";
+  return "om " + d + " dagar";
+}
+
+/* ---------- nivå 1 ---------- */
+function renderaLage(data){
+  const s = data.sammanfattning;
+  const kommande = data.kalender
+    .filter(r => r.typ === "stanger" && dagarKvar(r.datum) >= 0)
+    .sort((a,b) => a.datum < b.datum ? -1 : 1);
+  const nasta = kommande[0];
+  const tiles = [
+    {n:s.aktuella, l:"aktuella spår"},
+    {n:s.bevakas, l:"bevakas"},
+    {n:s.avfardade, l:"avfärdade"},
+    nasta ? {n:Math.max(0, dagarKvar(nasta.datum)), l:"dagar till nästa deadline — " + kortnamn(nasta), hot:true}
+          : {n:"–", l:"ingen kommande deadline"},
+  ];
+  $("#tiles").innerHTML = tiles.map(t =>
+    `<div class="tile${t.hot ? " hot" : ""}"><div class="n mono">${esc(t.n)}</div><div class="l">${esc(t.l)}</div></div>`
+  ).join("");
+
+  const per = Object.fromEntries(data.bidrag.map(p => [p.id, p]));
+  $("#ansokningar").innerHTML = data.ansokningar.map(a => {
+    const post = per[a.bidrag_id] || {};
+    const dl = a.deadline
+      ? `<div class="deadline mono">${esc(a.deadline)} · <span class="cd">${esc(dagarText(a.deadline))}</span></div>`
+      : `<div class="deadline mono muted">löpande</div>`;
+    return `<div class="card">
+      <h3>${esc(post.namn || a.bidrag_id)}</h3>
+      <span class="chip">${esc(a.status)}</span>
+      ${dl}
+      <p>${esc(a.noteringar || "")}</p>
+    </div>`;
+  }).join("");
+
+  $("#fragor-antal").textContent = data.obesvarade_fragor.length;
+  $("#fragor").innerHTML = data.obesvarade_fragor.map(f =>
+    `<li><span class="vem">${esc(kortnamn(f))}</span> — ${esc(f.fraga)}</li>`
+  ).join("");
+}
+
+/* ---------- nivå 2: tidslinjen ---------- */
+const SVGNS = "http://www.w3.org/2000/svg";
+function el(name, attrs, text){
+  const e = document.createElementNS(SVGNS, name);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (text != null) e.textContent = text;
+  return e;
+}
+function renderaKalender(data){
+  const GRANS = "2027-01-31";
+  const rader = data.kalender;
+  const inom = rader.filter(r => r.datum <= GRANS);
+  const senare = rader.filter(r => r.datum > GRANS);
+
+  /* skala */
+  const min = new Date("2026-08-01T00:00:00");
+  const max = new Date("2027-02-01T00:00:00");
+  const W = 980, H = 300, L = 26, R = 26, AXEL = 150;
+  const x = (d) => L + (new Date(d + "T00:00:00") - min) / (max - min) * (W - L - R);
+
+  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`, role:"img",
+    "aria-label":"Tidslinje över ansökningsfönster augusti 2026 till januari 2027"});
+
+  /* månadsstreck */
+  const manader = ["2026-08-01","2026-09-01","2026-10-01","2026-11-01","2026-12-01","2027-01-01"];
+  const namnM = ["aug","sep","okt","nov","dec","jan"];
+  manader.forEach((m,i) => {
+    const xm = x(m);
+    svg.appendChild(el("line", {x1:xm, y1:34, x2:xm, y2:H-38,
+      stroke:"var(--rule)", "stroke-width":1, "stroke-dasharray":"3 5"}));
+    svg.appendChild(el("text", {x:xm+4, y:H-22, "font-size":12,
+      fill:"var(--fg-muted)", "font-family":"ui-monospace,Menlo,monospace"}, namnM[i]));
+  });
+  /* axel */
+  svg.appendChild(el("line", {x1:L, y1:AXEL, x2:W-R, y2:AXEL, stroke:"var(--mark)", "stroke-width":2}));
+
+  /* idag — beräknas i webbläsaren */
+  const idag = new Date(); idag.setHours(0,0,0,0);
+  if (idag >= min && idag <= max){
+    const xi = L + (idag - min) / (max - min) * (W - L - R);
+    svg.appendChild(el("line", {x1:xi, y1:26, x2:xi, y2:H-38, stroke:"var(--accent)", "stroke-width":2.5}));
+    svg.appendChild(el("text", {x:xi+5, y:24, "font-size":11, fill:"var(--accent)",
+      "font-family":"ui-monospace,Menlo,monospace", "letter-spacing":"2"}, "IDAG"));
+  }
+
+  /* gruppera per datum, växla etiketter över/under axeln */
+  const grupper = [];
+  inom.forEach(r => {
+    const g = grupper.find(g => g.datum === r.datum);
+    if (g) g.rader.push(r); else grupper.push({datum:r.datum, rader:[r]});
+  });
+  grupper.sort((a,b) => a.datum < b.datum ? -1 : 1);
+
+  grupper.forEach((g, gi) => {
+    const gx = x(g.datum);
+    const upp = gi % 2 === 0;
+    const bas = upp ? AXEL - 22 : AXEL + 22;
+    const led = el("line", {x1:gx, y1:AXEL, x2:gx, y2:bas + (upp ? 8 : -8),
+      stroke:"var(--mark)", "stroke-width":1, opacity:.55});
+    svg.appendChild(led);
+    const passerad = dagarKvar(g.datum) < 0;
+    g.rader.forEach((r, ri) => {
+      const cy = upp ? bas - ri*16 : bas + ri*16;
+      const fylld = r.typ === "stanger";
+      const c = el("circle", {cx:gx, cy, r:5.5,
+        fill: fylld ? "var(--mark)" : "var(--bg)",
+        stroke:"var(--mark)", "stroke-width":2, opacity: passerad ? .38 : 1,
+        tabindex:0, class:"tl-event"});
+      c.setAttribute("aria-label",
+        `${r.namn} ${ORD.typ[r.typ]} ${r.datum}${passerad ? " (passerat)" : ""}`);
+      c.appendChild(el("title", {}, `${r.namn} — ${ORD.typ[r.typ]} ${r.datum}`));
+      koppplaTooltip(c, r, passerad);
+      svg.appendChild(c);
+      const t = el("text", {x:gx + 9, y:cy + 4, "font-size":11.5,
+        fill: passerad ? "var(--fg-muted)" : "var(--fg)",
+        "font-family":"ui-monospace,Menlo,monospace"},
+        kortnamn(r) + (r.typ === "oppnar" ? " ⊙" : ""));
+      svg.appendChild(t);
+    });
+    const d = el("text", {x:gx, y: upp ? AXEL + 16 : AXEL - 9, "font-size":10,
+      fill:"var(--fg-muted)", "text-anchor":"middle",
+      "font-family":"ui-monospace,Menlo,monospace"}, g.datum.slice(5).replace("-","/"));
+    svg.appendChild(d);
+  });
+
+  $("#tidslinje").appendChild(svg);
+
+  if (senare.length){
+    $("#senare").innerHTML = `<p class="small muted" style="margin:.5rem 0 0">
+      Längre fram: ` + senare.map(r =>
+        `<span class="mono">${esc(r.datum)}</span> ${esc(kortnamn(r))} ${esc(ORD.typ[r.typ])}`
+      ).join(" · ") + `</p>`;
+  }
+
+  /* kalendern som lista (tabellvy, alla rader) */
+  $("#kalenderlista tbody").innerHTML = rader.map(r =>
+    `<tr><td class="num">${esc(r.datum)}</td><td>${esc(ORD.typ[r.typ])}</td>
+     <td>${esc(r.namn)}</td><td class="small muted">${esc(r.notering || "")}</td></tr>`
+  ).join("");
+
+  /* topplistan */
+  const levande = data.bidrag.filter(p => p.status !== "avfardad");
+  $("#topplista tbody").innerHTML = levande.map(p => {
+    const nastaF = (p.ansokningsfonster || [])
+      .map(f => f.stanger || f.oppnar).filter(Boolean).filter(d => dagarKvar(d) >= 0).sort()[0];
+    const nastaTxt = p.lopande_ansokan ? "löpande" : (nastaF || "—");
+    return `<tr>
+      <td><a href="#post-${esc(p.id)}">${esc(p.namn)}</a></td>
+      <td class="small">${esc(p.finansiar)}</td>
+      <td><span class="chip ${esc(p.relevans)}">${esc(ORD.relevans[p.relevans] || "ej utrett")}</span></td>
+      <td class="small">${esc(ORD.sida[p.sida] || "ej utrett")}</td>
+      <td class="num">${p.stodandel_procent != null ? esc(p.stodandel_procent) + " %" : "—"}</td>
+      <td class="small">${esc(ORD.utbetalning[p.utbetalning] || "Ej utrett")}</td>
+      <td class="num">${esc(nastaTxt)}</td>
+    </tr>`;
+  }).join("");
+}
+
+/* tooltip */
+function koppplaTooltip(elem, r, passerad){
+  const tip = $("#tooltip");
+  const visa = (ev) => {
+    tip.innerHTML = `<div class="t-datum">${esc(r.datum)} · ${esc(ORD.typ[r.typ])}${passerad ? " · passerat" : ""}</div>
+      <strong>${esc(r.namn)}</strong><br><span style="opacity:.8">${esc(r.finansiar)}</span>` +
+      (r.notering ? `<div style="margin-top:.3rem">${esc(r.notering)}</div>` : "");
+    tip.style.display = "block";
+    const b = elem.getBoundingClientRect();
+    let tx = b.left + 14, ty = b.top - 10;
+    tip.style.left = "0px"; tip.style.top = "0px";
+    const tb = tip.getBoundingClientRect();
+    if (tx + tb.width > innerWidth - 12) tx = innerWidth - tb.width - 12;
+    if (ty + tb.height > innerHeight - 12) ty = b.top - tb.height - 8;
+    tip.style.left = Math.max(8, tx) + "px";
+    tip.style.top = Math.max(8, ty) + "px";
+  };
+  const dolj = () => { tip.style.display = "none"; };
+  elem.addEventListener("mouseenter", visa);
+  elem.addEventListener("mouseleave", dolj);
+  elem.addEventListener("focus", visa);
+  elem.addEventListener("blur", dolj);
+}
+
+/* ---------- nivå 3: katalogen ---------- */
+function rad(dt, dd){ return dd ? `<dt>${dt}</dt><dd>${dd}</dd>` : ""; }
+function lista(rubrik, arr){
+  if (!arr || !arr.length) return "";
+  return `<h4 class="overline" style="margin:.9rem 0 .2rem">${esc(rubrik)}</h4>
+    <ul>${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
+}
+function beloppText(p){
+  const b = p.belopp || {};
+  const delar = [];
+  if (b.min_kr != null && b.max_kr != null) delar.push(fmtKr(b.min_kr) + " – " + fmtKr(b.max_kr));
+  else if (b.max_kr != null) delar.push("upp till " + fmtKr(b.max_kr));
+  else if (b.min_kr != null) delar.push("lägst " + fmtKr(b.min_kr));
+  return esc(delar.join(" ")) || (b.notering ? "" : "ej utrett");
+}
+function fonsterText(p){
+  const f = (p.ansokningsfonster || []).map(w => {
+    const d = [];
+    if (w.oppnar) d.push("öppnar " + w.oppnar);
+    if (w.stanger) d.push("stänger " + w.stanger + " (" + dagarText(w.stanger) + ")");
+    return d.join(" · ");
+  }).filter(Boolean);
+  if (p.lopande_ansokan) f.unshift("löpande ansökan");
+  return f;
+}
+function renderaPost(p){
+  const st = p.status;
+  const chips = `<span class="chip ${esc(st)}">${esc(ORD.status[st])}</span>` +
+    (st !== "avfardad" && p.relevans ? `<span class="chip ${esc(p.relevans)}">relevans ${esc(ORD.relevans[p.relevans])}</span>` : "") +
+    `<span class="chip">${esc(ORD.sida[p.sida] || "ej utrett")}</span>`;
+  const med = p.medfinansiering || {};
+  const kallor = (p.kallor || []).map(k =>
+    `<li class="kallista"><span class="chip k-${esc(k.konfidens)}">${esc(ORD.konfidens[k.konfidens] || k.konfidens)}</span>
+     <a href="${esc(k.url)}" rel="noopener">${esc(k.url)}</a>
+     <span class="muted mono small">hämtad ${esc(k.hamtad || "?")}</span></li>`).join("");
+  const motiv = st === "avfardad" ? p.avfardad_motivering : p.relevans_motivering;
+  const fonster = fonsterText(p);
+
+  return `<details class="post" id="post-${esc(p.id)}">
+    <summary>
+      <span class="namn">${esc(p.namn)}</span>
+      <span class="fin">${esc(p.finansiar)}</span>
+      <span style="flex-basis:100%;height:0"></span>
+      ${chips}
+    </summary>
+    <div class="body">
+      ${motiv ? `<blockquote class="motiv">${esc(motiv)}</blockquote>` : ""}
+      <dl>
+        ${rad("Vem får söka", esc(p.vem_far_soka || "ej utrett"))}
+        ${rad("Belopp", [beloppText(p), esc((p.belopp || {}).notering || "")].filter(Boolean).join("<br>"))}
+        ${rad("Stödandel", p.stodandel_procent != null ? esc(p.stodandel_procent) + " %" : "ej utrett")}
+        ${rad("Utbetalning", esc(ORD.utbetalning[p.utbetalning] || "Ej utrett"))}
+        ${rad("Statsstöd", esc(ORD.statsstod[p.statsstod] || "Ej utrett"))}
+        ${rad("Ideell tid räknas", esc(ORD.janej[med.ideell_tid_racknas] || "Ej utrett"))}
+        ${rad("Kontakt", esc(p.kontakt || ""))}
+        ${st === "avfardad" ? rad("Avfärdad", esc(p.avfardad_datum || "")) : rad("Senast kontrollerad", esc(p.senast_kontrollerad || ""))}
+      </dl>
+      ${lista("Ansökningsfönster", fonster)}
+      ${lista("Spärrar och varningar", p.blockerare)}
+      ${lista("Krav och checklista", p.krav_checklista)}
+      ${lista("Telefonfrågor — obesvarade", p.telefonfragor)}
+      ${p.atgard ? `<h4 class="overline" style="margin:.9rem 0 .2rem">Nästa steg</h4><p style="font-size:.9rem;margin:.2rem 0">${esc(p.atgard)}</p>` : ""}
+      ${kallor ? `<h4 class="overline" style="margin:.9rem 0 .2rem">Källor</h4><ul>${kallor}</ul>` : ""}
+    </div>
+  </details>`;
+}
+function renderaKatalog(data){
+  const per = (s) => data.bidrag.filter(p => p.status === s).map(renderaPost).join("");
+  $("#kat-aktuell").innerHTML = per("aktuell");
+  $("#kat-bevakas").innerHTML = per("bevakas");
+  $("#kat-avfardad").innerHTML = per("avfardad");
+}
+
+/* ---------- start ---------- */
+async function ladda(){
+  let data;
+  try {
+    data = await (await fetch("data.json")).json();
+  } catch (fel) {
+    $("#stamp").textContent = "kunde inte läsa data.json";
+    console.error(fel);
+    return;
+  }
+  $("#stamp").textContent = "källäge " + (data.senaste_hamtning || "okänt");
+  $("#f-hamtning").textContent = data.senaste_hamtning || "ej utrett";
+  $("#f-uppdaterad").textContent = data.databas_uppdaterad || "ej utrett";
+  renderaLage(data);
+  renderaKalender(data);
+  renderaKatalog(data);
+}
+ladda();
+</script>
+</body>
+</html>
