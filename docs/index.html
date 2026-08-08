@@ -38,7 +38,7 @@ html{scroll-behavior:smooth}
 body{
   margin:0; background:var(--bg); color:var(--fg);
   font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
-  font-size:17px; line-height:1.55;
+  font-size:18px; line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
 /* Pappersgrain — data-URI, ingen extern resurs */
@@ -76,6 +76,13 @@ header.site{
 @media (prefers-color-scheme: dark){
   header.site{background:linear-gradient(180deg,#16344f 0%, var(--bg) 80%)}
 }
+nav.toc{
+  display:flex; flex-wrap:wrap; gap:.4rem 1.1rem; margin-top:1.1rem;
+  font-size:.98rem;
+}
+nav.toc a{white-space:nowrap}
+ul.kompakt{list-style:none; padding:0; margin:.4rem 0 1.2rem}
+ul.kompakt li{padding:.5rem 0; border-bottom:1px dashed var(--rule); font-size:.97rem}
 .stamp{
   display:inline-block; margin-top:1rem; padding:.35rem .7rem;
   border:2px solid var(--accent); color:var(--accent); border-radius:3px;
@@ -209,6 +216,13 @@ footer.site{
     Allt på sidan genereras ur föreningens bidragsdatabas, där varje uppgift
     bär källa, hämtdatum och konfidens.</p>
     <div class="stamp" id="stamp">läser in …</div>
+    <nav class="toc" aria-label="Innehåll">
+      <a href="#laget">Läget i korthet</a>
+      <a href="#kalendern">Kalendern</a>
+      <a href="#katalogen">Sannolika spår</a>
+      <a href="#h-osannolika">Mindre sannolika</a>
+      <a href="#h-avfardade">Avfärdade</a>
+    </nav>
   </div>
 </header>
 
@@ -222,7 +236,7 @@ footer.site{
     <h3>Förberedda ansökningar</h3>
     <div class="cards" id="ansokningar"></div>
 
-    <details class="fragor" id="fragor-box">
+    <details class="fragor" id="fragor-box" open>
       <summary>Obesvarade frågor — det som bara ett telefonsamtal kan avgöra
         (<span id="fragor-antal">0</span>)</summary>
       <ul id="fragor"></ul>
@@ -241,15 +255,13 @@ footer.site{
       <span><span class="sw" style="background:var(--accent); border-radius:0; width:.2rem"></span>idag</span>
     </div>
     <div id="senare"></div>
-    <details style="margin-top:.8rem">
-      <summary class="small muted" style="cursor:pointer">Kalendern som lista</summary>
-      <div class="tbl-scroll" style="margin-top:.5rem">
-        <table id="kalenderlista">
-          <thead><tr><th>Datum</th><th>Händelse</th><th>Bidrag</th><th>Notering</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </details>
+    <h3>Kalendern som lista — alla datum i klartext</h3>
+    <div class="tbl-scroll">
+      <table id="kalenderlista">
+        <thead><tr><th>Datum</th><th>Händelse</th><th>Bidrag</th><th>Notering</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
 
     <h3 id="h-topp">Topplistan — levande spår efter relevans</h3>
     <div class="tbl-scroll">
@@ -262,10 +274,11 @@ footer.site{
 
   <!-- ============ NIVÅ 3: HELA KATALOGEN ============ -->
   <section id="katalogen" aria-labelledby="h-kat">
-    <h2 id="h-kat">Hela katalogen</h2>
-    <p class="muted small">Varje kort visar det databasen publicerar: motivering,
-    krav, spärrar, belopp och källor — interna arbetsfält hålls utanför.
-    Konfidensmärkena betyder:
+    <h2 id="h-kat">Sannolika spår — det styrelsen bör titta på</h2>
+    <p class="muted small">Alla kort är UTFÄLLDA så att inget göms bakom en
+    tryckning — rubrikerna med bladtecknet ❧ går att fälla ihop om man vill.
+    Varje kort visar vad föreningen kan söka för, rimliga belopp, tidigare
+    tilldelningar, krav och källor. Konfidensmärkena betyder:
     <span class="chip k-kalla">källa</span> läst på finansiärens egen sida ·
     <span class="chip k-soktraff">sökträff</span> sökmotor eller tredjepartskälla ·
     <span class="chip k-gemini">gemini</span> AI-grounding där sajten blockerar hämtning ·
@@ -559,7 +572,7 @@ function fonsterText(p){
   if (p.lopande_ansokan) f.unshift("löpande ansökan");
   return f;
 }
-function renderaPost(p){
+function renderaPost(p, oppen){
   const st = p.status;
   const chips = `<span class="chip ${esc(st)}">${esc(ORD.status[st])}</span>` +
     (st !== "avfardad" && p.relevans ? `<span class="chip ${esc(p.relevans)}">relevans ${esc(ORD.relevans[p.relevans])}</span>` : "") +
@@ -579,7 +592,7 @@ function renderaPost(p){
   const motiv = st === "avfardad" ? p.avfardad_motivering : p.relevans_motivering;
   const fonster = fonsterText(p);
 
-  return `<details class="post" id="post-${esc(p.id)}">
+  return `<details class="post" id="post-${esc(p.id)}"${oppen ? " open" : ""}>
     <summary>
       <span class="namn">${esc(p.namn)}</span>
       <span class="fin">${esc(p.finansiar)}</span>
@@ -598,6 +611,8 @@ function renderaPost(p){
         ${radHtml("Kontakt", esc(p.kontakt || ""))}
         ${st === "avfardad" ? radHtml("Avfärdad", esc(p.avfardad_datum || "")) : radHtml("Senast kontrollerad", esc(p.senast_kontrollerad || ""))}
       </dl>
+      ${lista("Vad kan föreningen söka för?", p.projektuppslag)}
+      ${lista("Tidigare tilldelningar i närheten — praxis", p.praxis)}
       ${lista("Ansökningsfönster", fonster)}
       ${lista("Spärrar och varningar", p.blockerare)}
       ${lista("Krav och checklista", p.krav_checklista)}
@@ -608,19 +623,40 @@ function renderaPost(p){
   </details>`;
 }
 function renderaKatalog(data){
-  /* Sektionerna drivs av data.statusordning — en ny status i databasen blir en
-     ny rubrik här, aldrig tyst försvunna poster. */
-  const ordn = data.statusordning || [];
-  const kanda = new Set(ordn.map(o => o.status));
-  let html = ordn.map(o => {
-    const poster = data.bidrag.filter(p => p.status === o.status);
-    if (!poster.length) return "";
-    const kls = o.status === "avfardad" ? ' class="avsnitt-avfardade"' : "";
-    return `<h3>${esc(o.rubrik)}</h3><div${kls}>${poster.map(renderaPost).join("")}</div>`;
-  }).join("");
-  const ovriga = data.bidrag.filter(p => !kanda.has(p.status));
-  if (ovriga.length){
-    html += `<h3>Övriga</h3><div>${ovriga.map(renderaPost).join("")}</div>`;
+  /* Sannolika spår får fylliga, UTFÄLLDA kort. Mindre sannolika blir en
+     kompakt rad-lista, och avfärdade en mening — fokus ska ligga på det
+     styrelsen faktiskt kan agera på. Okänd status eller relevans försvinner
+     aldrig tyst: den hamnar synligt bland de sannolika korten. */
+  const levande = data.bidrag.filter(p => p.status !== "avfardad");
+  const avfardade = data.bidrag.filter(p => p.status === "avfardad");
+  const osannolika = levande.filter(p => p.relevans === "lag");
+  const sannolika = levande.filter(p => p.relevans !== "lag");
+  const RELR = {hog:0, medel:1};
+  sannolika.sort((a,b) =>
+    ((RELR[a.relevans] ?? 9) - (RELR[b.relevans] ?? 9)) ||
+    ((a.status === "aktuell" ? 0 : 1) - (b.status === "aktuell" ? 0 : 1)) ||
+    (a.namn || "").localeCompare(b.namn || "", "sv"));
+
+  const forstaMening = (t) => {
+    const m = String(t || "").split(/(?<=\.)\s+/)[0] || "";
+    return m.length > 160 ? m.slice(0, 157) + "…" : m;
+  };
+
+  let html = `<div>${sannolika.map(p => renderaPost(p, true)).join("")}</div>`;
+
+  if (osannolika.length){
+    html += `<h3 id="h-osannolika">Mindre sannolika spår — bevakas i förbifarten</h3>
+      <p class="muted small">Dessa är inte fel, bara osannolika just nu. En rad var:</p>
+      <ul class="kompakt">` + osannolika.map(p =>
+        `<li><strong>${esc(p.namn)}</strong> <span class="muted">(${esc(p.finansiar)})</span> — ${esc(forstaMening(p.relevans_motivering))}</li>`
+      ).join("") + `</ul>`;
+  }
+  if (avfardade.length){
+    html += `<h3 id="h-avfardade">Avfärdade spår</h3>
+      <p class="small muted"><strong>${avfardade.length} spår är avfärdade</strong>
+      (stängda programperioder, fel målgrupp eller fel geografi) och återforskas
+      inte: ${avfardade.map(p => esc(p.namn)).join(" · ")}.
+      Motiveringarna finns bevarade i föreningens bidragsdatabas.</p>`;
   }
   $("#katalog-sektioner").innerHTML = html;
 }

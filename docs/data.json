@@ -98,7 +98,7 @@
     "Föreningens historik.",
     "Verksamhetsberättelse.",
     "Detaljerad kostnadsberäkning.",
-    "Avgränsa ansökan till det som är gratis och öppet för alla — badplats, iläggningsramp, lekpark, leder — och beskriv det som allmännyttig anläggning för bygden, skilt från campingdriften."
+    "Avgränsa ansökan till det som är gratis och öppet för alla — badplats och strand, iläggningsramp, lekplats, boulebana, volleybollbana, stigar, vindskydd, eldstäder, öppna ytor (avgiftsgränsen klarlagd 2026-08-08: endast campingplatser och servicehus är avgiftsbelagda) — och beskriv det som allmännyttig anläggning för bygden, skild från campingdriften."
    ],
    "lopande_ansokan": false,
    "medfinansiering": {
@@ -108,6 +108,16 @@
    },
    "namn": "Bygdemedel",
    "niva": "stat",
+   "praxis": [
+    "Grannlänspraxis (Jämtland, kommunala prioriteringslistor 2010/2015 — indikativt, inte Västernorrlandsbeslut): föreningsägd brygga 25 000 kr, båtbryggor 20 000 kr, tillgänglighetsanpassad båthamn 122 000 kr, badplatsupprustning 37 400 kr, gästhamnsflytbryggor 50 000 kr. Mönstret: föreningsägda anläggningar beviljas, privatägda campingar avstyrks.",
+    "Rimligt sökt belopp utifrån praxis: 20 000–125 000 kr. Västernorrland publicerar varken stödandel eller tak — kalibrera med handläggaren."
+   ],
+   "projektuppslag": [
+    "Upprustad badplats och strand — gratis och öppen för alla, avgiftsgränsen klarlagd 2026-08-08.",
+    "Brygga eller iläggningsramp — anmälan om vattenverksamhet krävs före arbetet.",
+    "Lekplats, boulebana eller volleybollbana — \"förbättring av idrottsanläggningar\" är ett uttryckligt ändamål i exempellistan.",
+    "Markering och upprustning av stigar och leder."
+   ],
    "relevans": "hog",
    "relevans_motivering": "Ånge är en av sex berättigade kommuner, och föreningslokaler samt stigar och leder är uttryckliga ändamål. Exempellistan är just EXEMPEL — att bryggor och badplatser inte nämns är ingen uteslutning, och Länsstyrelsen Jämtland förutsätter uttryckligen bryggor som stödbart ändamål. Spärren \"sådant som används i en affärsverksamhet\" är nationell WEBBMALL utan motsvarighet i förordningen (1998:928 nämner tvärtom näringsliv som legitimt ändamål), och praxis i Jämtland 2010 beviljade föreningsägda bryggor, båthamnar och badplatser men avstyrkte privatägda campingar. Gränsen för Västernorrland är fortfarande en telefonfråga — men läget är LJUSARE än tidigare bedömt. OBS: det gamla brygg-indiciet (Järvsands byalag) visade sig gälla en vindkraftsfond, inte bygdemedel.",
    "senast_kontrollerad": "2026-08-08",
@@ -171,6 +181,9 @@
    },
    "namn": "Bygdemedel för Björnberget",
    "niva": "privat",
+   "projektuppslag": [
+    "Leder, badplats, lekplats eller tillgänglighetsåtgärder — \"ökad tillgänglighet till naturvärden, idrott eller kulturella aktiviteter\" är stödets ordagranna syfte. Sikta på juniomgången 2027."
+   ],
    "relevans": "hog",
    "relevans_motivering": "Enda finansiären i hela kartan som är SPECIFIK för Ånge kommun och träffar föreningens allmännyttiga profil rakt: \"ökad tillgänglighet till naturvärden, idrott eller kulturella aktiviteter\" är själva syftet, och besöksnäring, natur/miljö och förädling av lokala tillgångar är uttalade bedömningsgrunder. Område B (2/3 av medlen) är öppet för föreningar i hela kommunen. Privat bygdemedel — ingen myndighet, sannolikt ingen statsstödsproblematik, men obekräftat.",
    "senast_kontrollerad": "2026-08-08",
@@ -237,6 +250,9 @@
    },
    "namn": "Lokalstöd",
    "niva": "stat",
+   "projektuppslag": [
+    "Ny tillgänglighetsanpassad lokal eller anläggning för en NY verksamhet riktad till äldre 65+ eller barn och unga — 80 % av kostnaden, upp till 8–10 mkr, utbetalt i förskott. Kräver att verksamheten tydligt skiljer sig från campingdriften och drivs i tio år."
+   ],
    "relevans": "hog",
    "relevans_motivering": "Högst stödandel av allt i kartan — 80 procent av godkända kostnader, max 10 mkr inkl moms ELLER 8 mkr exkl moms. Löpande ansökan, ingen deadline, och utbetalning i FÖRSKOTT mot rekvisition — ovanligt likviditetsvänligt. Äldre som fyllt 65 är godkänd målgrupp, vilket öppnar ett spår som inte kräver barnverksamhet. Ägandet av marken gör bygge väsentligt enklare. Bedömningskriteriet heter numera \"Utvecklande\" (ett av tre: Utvecklande, Delaktighet, Överlevnad) — ordet \"nyskapande\" finns inte längre hos Arvsfonden.",
    "senast_kontrollerad": "2026-08-08",
@@ -326,8 +342,12 @@
    },
    "namn": "Nokås — natur- och kulturmiljövårdsåtgärder i skogen",
    "niva": "stat",
+   "projektuppslag": [
+    "Röja, rensa och märka vandringsled i egen skog — fast ersättning 10 kr/meter: 2 km ger ca 20 000 kr, 5 km ca 50 000 kr, utan att kostnader behöver redovisas.",
+    "Nya eller upprustade friluftsanordningar längs stigarna — vindskydd, eldstäder, spänger, bänkar, broar, skyltar — 70 % av godkänd kostnad, där ideellt arbete räknas som kostnad (340 kr/tim)."
+   ],
    "relevans": "hog",
-   "relevans_motivering": "Föreningen äger skogen själv, så inget markägartillstånd behövs. Stödet täcker uttryckligen stigskötsel, friluftsanordningar och att röja, rensa och märka vandringsled — precis det en camping vill ha. 70 procent i stöd. Fönstret stänger 31 augusti 2026 för just dessa åtgärder.",
+   "relevans_motivering": "Föreningen äger skogen själv, så inget markägartillstånd behövs. Stödet täcker uttryckligen stigskötsel, friluftsanordningar och att röja, rensa och märka vandringsled — precis det en camping vill ha. 70 procent i stöd. Anvisningens definition av friluftsanordningar — vindskydd, bänkar, spänger, broar, skyltar — träffar föreningens befintliga vindskydd och eldstäder rakt, och skogen med stigarna är öppen och avgiftsfri för alla (avgiftsgränsen klarlagd av Daniel 2026-08-08). Fönstret stänger 31 augusti 2026 för just dessa åtgärder.",
    "senast_kontrollerad": "2026-08-08",
    "sida": "allmannyttig",
    "statsstod": "de_minimis",
@@ -421,6 +441,11 @@
    },
    "namn": "Projektstöd genom Leader Mittland Plus",
    "niva": "eu",
+   "projektuppslag": [
+    "Wifi över området — enda vägen till det; LAG:s allmännyttebedömning avgör om taket blir 300 000 kr (40–70 %) eller faller bort (40–100 %).",
+    "Paraplyprojekt \"Stärkt föreningsliv\" — upp till 30 000 kr, en projekttyp Leader aktivt efterlyser.",
+    "Förstudie Smart bygd — upp till 100 000 kr med snabbansökan."
+   ],
    "relevans": "hog",
    "relevans_motivering": "Enda finansiären som täcker Ånge, värderar ideell arbetstid, saknar uppenbar spärr mot verksamhet som tar betalt och redan känner föreningen — sidfoten på angecamping.com anger Leader Mittland Plus som stödgivare. Enda vägen till wifi, eftersom ingen finansiär har en egen post för det. Leader efterlyser dessutom aktivt projekt för \"stärkt föreningsliv\" och \"hälsa och framtidstro\" (2025-09-15). VARNING: mittlandplus.se är ett ARKIV över programperioden 2014–2022 — använd bara leadermitt.se och Jordbruksverket som källor.",
    "senast_kontrollerad": "2026-08-08",
@@ -476,6 +501,9 @@
    },
    "namn": "Bidrag från Swedbanks Ägarstiftelse Norrland",
    "niva": "stiftelse",
+   "projektuppslag": [
+    "Idrotts- och aktivitetsutrustning — boulebana, volleybollbana eller lekplats ryms i ändamålet \"idrott\". Typiskt 5 000–40 000 kr; sikta på oktoberbeslutet."
+   ],
    "relevans": "medel",
    "relevans_motivering": "Verksamhetsområdet är Västerbotten och Västernorrland, och föreningar får söka. Detta är svaret på frågan om vilken sparbanksstiftelse som täcker Ånge. Belopp och beslutsordning är nu publicerade på undersidan /bidrag/: oftast 5 000–40 000 kr, löpande ansökan, beslut två gånger per år vid möten i april och oktober. Nästa beslutstillfälle: oktober 2026.",
    "senast_kontrollerad": "2026-08-08",
@@ -531,6 +559,9 @@
    },
    "namn": "Bidrag till kulturhistoriska miljöer",
    "niva": "stat",
+   "projektuppslag": [
+    "Antikvariskt motiverade merkostnader vid bystugans upprustning — 20–80 % av överkostnaden — om byggnadens kulturhistoriska värde kan beläggas hos kulturmiljöenheten."
+   ],
    "relevans": "medel",
    "relevans_motivering": "Direkt matchning mot bystugans upprustning OM byggnaden har kulturhistoriskt värde — formellt skydd krävs INTE, även \"särskild lokal eller regional betydelse\" räcker. 20–80 % av de kulturhistoriskt motiverade ÖVERkostnaderna (antikvariska merkostnader, inte hela renoveringen). Relevansen står och faller med bystugans kulturmiljöstatus, som är outredd.",
    "senast_kontrollerad": "2026-08-08",
@@ -588,6 +619,9 @@
    },
    "namn": "Drift- och underhållsbidrag till samlingslokal",
    "niva": "kommun",
+   "projektuppslag": [
+    "Driftbidrag för bystugan enligt aktivitetsstegen 20 000–75 000 kr — ju fler aktiviteter, desto högre bidrag. Kräver att Alby är godkänt i Samlingslokalsutredningen och att lokalen hålls tillgänglig för offentliga arrangemang."
+   ],
    "relevans": "medel",
    "relevans_motivering": "Bystugan är kandidaten. Kravet på \"allmän föreningsverksamhet\" pekar åt samma håll som Boverkets krav — de två spåren stärker varandra.",
    "senast_kontrollerad": "2026-08-08",
@@ -661,6 +695,9 @@
    },
    "namn": "Klimatklivet",
    "niva": "stat",
+   "projektuppslag": [
+    "Byte till fossilfri uppvärmning i föreningens byggnader — ordinarie omgång 24 augusti–4 september. Solceller först EFTER telefonsvar om elproduktionsspärren."
+   ],
    "relevans": "medel",
    "relevans_motivering": "Laddstolpar är sökbara, men publik laddning avgörs genom anbud som rangordnas efter KLIMATNYTTA PER INVESTERAD KRONA (inte lägst kr/kW som tidigare stod här) — föreningen konkurrerar ändå mot kommersiella laddoperatörer. Spåret \"byte till fossilfri el och värme\" i den ordinarie omgången gäller uppvärmning; för SOLCELLER finns en obekräftad men allvarlig varning om att elproduktion inte får Klimatklivet-stöd — telefonfråga innan solcellsplaner byggs på det här spåret.",
    "senast_kontrollerad": "2026-08-08",
@@ -830,6 +867,9 @@
    },
    "namn": "Riktat bidrag till föreningar",
    "niva": "kommun",
+   "projektuppslag": [
+    "Utrustning till de öppna anläggningarna — lekplats, boulebana, volleybollbana eller badplats. Små belopp; det verkliga värdet är handläggarkontakten inför Boverkets 30-procentskrav längre fram."
+   ],
    "relevans": "medel",
    "relevans_motivering": "Minst pengar och minst arbete, men bygger den handläggarkontakt som både Boverkets 30-procentskrav och LONA-vägen förutsätter. Deadline 25 augusti.",
    "senast_kontrollerad": "2026-08-08",
