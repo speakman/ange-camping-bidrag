@@ -275,12 +275,12 @@
   {
    "ansokningsfonster": [
     {
-     "notering": "Nio åtgärder slutar prioriteras 1 september 2026 och måste sökas senast 31 augusti. Två av dem är föreningens: \"friluftsanordningar\" samt \"stigar och vandringsleder\".",
+     "notering": "Nio åtgärder slutar prioriteras 1 september 2026 och måste sökas senast 31 augusti. TRE av dem är föreningens: \"friluftsanordningar\", \"sikthuggning\" samt \"stigar och vandringsleder\" — kontrollerat mot Skogsstyrelsens lista 2026-08-18. Inget av spåren kan skjutas upp.",
      "oppnar": null,
      "stanger": "2026-08-31"
     }
    ],
-   "atgard": "Styrelsen måste välja vilka leder och anordningar som ska sökas. Därefter skrivs ansökan och lämnas in före 31 augusti. Ring 010-172 10 00 om 5 km-gränsen och 31 augusti-fristens natur.",
+   "atgard": "Sträckningen ska gås och ritas in på karta innan ansökan skickas. Styrelsen beslutar om åtgärderna och om fullmakt före 31 augusti. Ring 010-172 10 00 om 31 augusti-fristens natur.",
    "begransningar": [
     "Ansök senast 31 augusti 2026 — därefter avprioriteras just leder och friluftsanordningar.",
     "Inget arbete får påbörjas innan ansökan är inlämnad.",
@@ -290,7 +290,7 @@
    "belopp": {
     "max_kr": null,
     "min_kr": 5000,
-    "notering": "Lägsta stöd 5 000 kr — \"om det inte finns särskilda skäl\" (SKSFS 2020:2, dispensventil). Led ersätts med FAST STÖDBELOPP 10 kr/löpmeter; 70-procentsandelen tillämpas INTE på den posten (eget stycke i föreskriften). 5 km-gränsen finns BARA på webbplatsen, inte i föreskriften, och sajten motsäger sig själv (\"högst\" mot \"under\" 5 km) — telefonfråga. \"Max 50 000 kr\" är INTE ett absolut tak: en led längre än 5 km utesluts inte utan flyttas till 70 % av faktisk kostnad. Riktvärdena gäller ansökningar från 1 maj 2026. Ideellt arbete värderas som eget arbete: 340 kr/tim manuellt (+50–300 kr/tim för maskiner, 2,50 kr/km bil) — som GODKÄND KOSTNAD på 70 %-posten, utan verkan på fastersättningen där kostnader inte redovisas."
+    "notering": "Lägsta stöd 5 000 kr — \"om det inte finns särskilda skäl\" (SKSFS 2020:2, dispensventil). Led ersätts med FAST STÖDBELOPP 10 kr/löpmeter; 70-procentsandelen tillämpas INTE på den posten (eget stycke i föreskriften) — bekräftat 2026-08-18: riktvärdestabellens egen rubrik lyder \"Fast stödbelopp\", så 10 kr/m är stödet och inte en kostnad att ta 70 % av. 5 km-gränsen är dock INTE samstämmig mellan Skogsstyrelsens egna ytor: handboken säger \"kortare än 5 km\", Nokåssidan \"under 5 kilometer\" och riktvärdestabellen \"högst 5 kilometer\". Planera under 5 000 meter — då håller ansökan oavsett vilken läsning handläggaren använder. Ersättning lämnas endast för de löpmeter som faktiskt åtgärdas med röjning, rensning och märkning; sträckor utan åtgärdsbehov räknas bort. \"Max 50 000 kr\" är INTE ett absolut tak: en led längre än 5 km utesluts inte utan flyttas till 70 % av faktisk kostnad. Riktvärdena gäller ansökningar från 1 maj 2026. Ideellt arbete värderas som eget arbete: 340 kr/tim manuellt (+50–300 kr/tim för maskiner, 2,50 kr/km bil) — som GODKÄND KOSTNAD på 70 %-posten, utan verkan på fastersättningen där kostnader inte redovisas. Eget arbete får inte bli dyrare än om åtgärden utförts av entreprenör."
    },
    "blockerare": [
     "Stöd ges inte för åtgärder påbörjade innan ansökan kommit in till Skogsstyrelsen.",
@@ -333,9 +333,14 @@
      "hamtad": "2026-08-08",
      "konfidens": "kalla",
      "url": "https://www.skogsstyrelsen.se/aga-skog/stod-och-bidrag/nokas/om-stod-av-mindre-betydelse/"
+    },
+    {
+     "hamtad": "2026-08-18",
+     "konfidens": "kalla",
+     "url": "bidrag/kallor/2026-08-18-skogsstyrelsen-handbok-stodberattigade-atgarder-nokas.pdf"
     }
    ],
-   "kan_ge": "70 % av godkänd kostnad för friluftsanordningar — där ideellt arbete räknas som kostnad (340 kr/tim) — och fast 10 kr/meter för led: 5 km ger 50 000 kr. Lägsta stöd 5 000 kr; inget uttalat tak.",
+   "kan_ge": "70 % av godkänd kostnad för friluftsanordningar — där ideellt arbete räknas som kostnad (340 kr/tim) — och fast 10 kr/meter för stig kortare än 5 km: knappt 5 km ger nära 50 000 kr. Lägsta stöd 5 000 kr.",
    "kontakt": "Skogsstyrelsen 010-172 10 00",
    "kortnamn": "Nokås",
    "krav_checklista": [
@@ -354,21 +359,22 @@
    "namn": "Nokås — natur- och kulturmiljövårdsåtgärder i skogen",
    "niva": "stat",
    "projektuppslag": [
-    "Röja, rensa och märka vandringsled i egen skog — fast ersättning 10 kr/meter: 2 km ger ca 20 000 kr, 5 km ca 50 000 kr, utan att kostnader behöver redovisas.",
+    "Röja, rensa och märka vandringsled i egen skog — fast ersättning 10 kr/meter för stig kortare än 5 km: 2 km ger ca 20 000 kr, 4,5 km ca 45 000 kr, utan att kostnader behöver redovisas. Bara de meter som faktiskt åtgärdas räknas.",
     "Nya eller upprustade friluftsanordningar längs stigarna — vindskydd, eldstäder, spänger, bänkar, broar, skyltar — 70 % av godkänd kostnad, där ideellt arbete räknas som kostnad (340 kr/tim).",
     "Tillgänglighetsanpassa en stigslinga för rullstol och barnvagn — anvisningen nämner uttryckligen att sådana anpassningar ryms.",
-    "Informationsskyltar och skylthållare längs lederna — står med i anvisningens exempellista."
+    "Informationsskyltar och skylthållare längs lederna — står med i anvisningens exempellista. Ett urval tematiska skyltar är kostnadsfria att beställa från Skogsstyrelsen.",
+    "Sikthuggning mot Ljungan — öppna utsikten från en stig, en rastplats eller en utsiktspunkt. 70 % av kostnaden. Arbete nära vattnet måste planeras av en sakkunnig, och kantzonen mot älven lämnas orörd.",
+    "Karta, folder eller en sida om stigen — sådant material får räknas in i ansökan, och det stärker bilden av att stigen är till för allmänheten."
    ],
    "relevans": "hog",
    "relevans_motivering": "Föreningen äger skogen själv, så inget markägartillstånd behövs. Stödet täcker uttryckligen stigskötsel, friluftsanordningar och att röja, rensa och märka vandringsled — precis det en camping vill ha. 70 procent i stöd. Anvisningens definition av friluftsanordningar — vindskydd, bänkar, spänger, broar, skyltar — träffar föreningens befintliga vindskydd och eldstäder rakt, och skogen med stigarna är öppen och avgiftsfri för alla (avgiftsgränsen klarlagd av Daniel 2026-08-08). Fönstret stänger 31 augusti 2026 för just dessa åtgärder.",
-   "senast_kontrollerad": "2026-08-08",
+   "senast_kontrollerad": "2026-08-18",
    "sida": "allmannyttig",
    "statsstod": "de_minimis",
    "status": "aktuell",
    "stodandel_procent": 70,
    "telefonfragor": [
     "Är 31 augusti formell sista ansökningsdag eller bara sista dag med prioritet — avvisas eller prövas en ansökan som kommer in 1 september?",
-    "Gäller fast ersättning 10 kr/m vid \"högst 5 km\" eller \"under 5 km\", och får en längre led i stället 70 % av faktisk kostnad utan beloppstak?",
     "Hur ska ideellt arbete styrkas vid ansökan om utbetalning — tidrapporter, styrelseprotokoll eller medlemsförteckning?",
     "Får momsen räknas in i godkänd kostnad när föreningen driver momspliktig camping men leden används gratis av allmänheten (blandad avdragsrätt)?",
     "Påverkar närheten till en kommersiell camping bedömningen, eller räcker det att led och anordningar är tillgängliga för allmänheten?"
@@ -1907,7 +1913,7 @@
    "finansiar": "Skogsstyrelsen",
    "kortnamn": "Nokås",
    "namn": "Nokås — natur- och kulturmiljövårdsåtgärder i skogen",
-   "notering": "Nio åtgärder slutar prioriteras 1 september 2026 och måste sökas senast 31 augusti. Två av dem är föreningens: \"friluftsanordningar\" samt \"stigar och vandringsleder\".",
+   "notering": "Nio åtgärder slutar prioriteras 1 september 2026 och måste sökas senast 31 augusti. TRE av dem är föreningens: \"friluftsanordningar\", \"sikthuggning\" samt \"stigar och vandringsleder\" — kontrollerat mot Skogsstyrelsens lista 2026-08-18. Inget av spåren kan skjutas upp.",
    "typ": "stanger"
   },
   {
@@ -2094,12 +2100,6 @@
   },
   {
    "bidrag_id": "nokas",
-   "fraga": "Gäller fast ersättning 10 kr/m vid \"högst 5 km\" eller \"under 5 km\", och får en längre led i stället 70 % av faktisk kostnad utan beloppstak?",
-   "kortnamn": "Nokås",
-   "namn": "Nokås — natur- och kulturmiljövårdsåtgärder i skogen"
-  },
-  {
-   "bidrag_id": "nokas",
    "fraga": "Hur ska ideellt arbete styrkas vid ansökan om utbetalning — tidrapporter, styrelseprotokoll eller medlemsförteckning?",
    "kortnamn": "Nokås",
    "namn": "Nokås — natur- och kulturmiljövårdsåtgärder i skogen"
@@ -2236,7 +2236,7 @@
   "avfardade": 9,
   "bevakas": 7
  },
- "senaste_hamtning": "2026-08-08",
+ "senaste_hamtning": "2026-08-18",
  "statusordning": [
   {
    "rubrik": "Aktuella spår",
